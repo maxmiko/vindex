@@ -50,7 +50,12 @@
         "name": "Law office Vindex",
         "alternateName": "Vindex",
         "url": "https://vindex.lv/en/",
-        "logo": "https://vindex.lv/images/logo-vindex.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vindex.lv/images/logo-vindex.png",
+          "width": 812,
+          "height": 270
+        },
         "description": "Law office with more than 25 years of experience in commercial and construction law.",
         "address": {
           "@type": "PostalAddress",
@@ -99,13 +104,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
       <a href="/vindex/en/" class="navbar__logo" aria-label="Vindex - Home">
-        <div class="navbar__logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
-        </div>
-        <div class="navbar__logo-text">
-          <div class="navbar__logo-firm">Law office</div>
-          <div class="navbar__logo-name">VINDEX</div>
-        </div>
+        <img src="/vindex/images/logo-vindex.png" alt="Law office Vindex" class="navbar__logo-img">
       </a>
 
       <div class="navbar__links">

@@ -23,6 +23,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Deploy log
+deploy.log
+
 # Env
 .env
 .env.local

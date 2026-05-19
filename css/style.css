@@ -775,6 +775,78 @@ ul { list-style: none; }
   background-color: var(--navy-light);
 }
 
+/* --- Cookie Banner --- */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: var(--navy);
+  border-top: 2px solid var(--gold);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+}
+
+.cb__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cb__text {
+  font-family: var(--font-sans);
+  color: var(--text-light);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.cb__text a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.cb__buttons {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cb__btn {
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+
+.cb__btn--accept {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+.cb__btn--accept:hover { background-color: var(--gold-hover); }
+
+.cb__btn--reject {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--text-light);
+}
+.cb__btn--reject:hover { border-color: var(--gold); color: var(--gold); }
+
+@media (max-width: 768px) {
+  .cb__inner { flex-direction: column; text-align: center; }
+  .cb__buttons { width: 100%; }
+  .cb__btn { flex: 1; }
+}
+
 /* --- Animations --- */
 .fade-in {
   opacity: 0;

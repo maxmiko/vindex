@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://vindex.lv/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/"/>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/pakalpojumi/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/pakalpojumi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/services/"/>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/birojs/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/birojs/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/bureau/"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/kontakti/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/kontakti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/contacts/"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/en/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/"/>
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/en/services/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/pakalpojumi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/services/"/>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/en/bureau/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/birojs/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/bureau/"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://vindex.lv/en/contacts/</loc>
+    <xhtml:link rel="alternate" hreflang="lv" href="https://vindex.lv/kontakti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://vindex.lv/en/contacts/"/>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

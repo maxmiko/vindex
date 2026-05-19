@@ -1,0 +1,13 @@
+{
+  "forms": {
+    "contactForm": {
+      "name": "Vindex Contact Form",
+      "actions": [
+        {
+          "type": "email",
+          "to": "info@vindex.lv"
+        }
+      ]
+    }
+  }
+}

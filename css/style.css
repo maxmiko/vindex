@@ -151,33 +151,16 @@ ul { list-style: none; }
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.navbar__logo-icon {
-  width: 32px; height: 32px;
-  background-color: var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.navbar__logo-img {
+  height: 36px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: opacity var(--transition);
 }
 
-.navbar__logo-icon svg { width: 16px; height: 16px; fill: var(--white); }
-
-.navbar__logo-text { text-align: left; }
-.navbar__logo-firm {
-  font-family: var(--font-serif);
-  color: var(--white);
-  font-size: 1rem;
-  line-height: 1.1;
-}
-.navbar__logo-name {
-  font-family: var(--font-serif);
-  color: var(--gold);
-  font-size: 1.25rem;
-  line-height: 1.1;
-  letter-spacing: 0.05em;
-}
+.navbar__logo-img:hover { opacity: 0.85; }
 
 .navbar__links {
   display: flex;

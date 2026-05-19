@@ -29,7 +29,7 @@
   <link rel="alternate" hreflang="en" href="https://vindex.lv/en/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/vindex/images/favicon.png">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -368,7 +368,10 @@
           </div>
         </div>
         <div class="fade-right">
-          <form class="contact-form" action="#" method="POST">
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="New inquiry from vindex.lv">
+            <input type="hidden" name="redirect" value="https://dev.omarketing.lv/vindex/en/">
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="name">Full Name</label>

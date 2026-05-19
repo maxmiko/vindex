@@ -14,7 +14,7 @@
   <meta property="og:locale" content="en_US">
   <link rel="alternate" hreflang="lv" href="https://vindex.lv/kontakti/">
   <link rel="alternate" hreflang="en" href="https://vindex.lv/en/contacts/">
-  <link rel="icon" type="image/png" href="/vindex/images/favicon.png">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -79,7 +79,10 @@
           </div>
         </div>
         <div class="fade-right">
-          <form class="contact-form" action="#" method="POST">
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="New inquiry from vindex.lv">
+            <input type="hidden" name="redirect" value="https://dev.omarketing.lv/vindex/en/">
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="name">Full Name</label>

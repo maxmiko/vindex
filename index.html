@@ -15,7 +15,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Juridiskie pakalpojumi Latvijā | Juridiskais birojs Vindex">
   <meta property="og:description" content="Juridiskais birojs Vindex — vairāk kā 25 gadu pieredze komerctiesību un būvniecības tiesību jomā. Pirmā konsultācija par brīvu!">
-  <meta property="og:image" content="https://vindex.lv/wp-content/uploads/2022/09/Vindex-partner-Gvido-Senkans.jpg">
+  <meta property="og:image" content="https://vindex.lv/images/og-image.jpg">
   <meta property="og:locale" content="lv_LV">
   <meta property="og:site_name" content="Vindex">
 
@@ -23,14 +23,15 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Juridiskie pakalpojumi Latvijā | Juridiskais birojs Vindex">
   <meta name="twitter:description" content="Juridiskais birojs Vindex — vairāk kā 25 gadu pieredze komerctiesību un būvniecības tiesību jomā. Pirmā konsultācija par brīvu!">
-  <meta name="twitter:image" content="https://vindex.lv/wp-content/uploads/2022/09/Vindex-partner-Gvido-Senkans.jpg">
+  <meta name="twitter:image" content="https://vindex.lv/images/og-image.jpg">
 
   <!-- Alternate language -->
   <link rel="alternate" hreflang="lv" href="https://vindex.lv/">
   <link rel="alternate" hreflang="en" href="https://vindex.lv/en/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/vindex/images/favicon.png">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/vindex/images/logo-vindex.png" type="image/png" sizes="143x48">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,13 +101,7 @@
   <nav class="navbar" role="navigation" aria-label="Galvenā navigācija">
     <div class="navbar__inner">
       <a href="/vindex/" class="navbar__logo" aria-label="Vindex - Sākums">
-        <div class="navbar__logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
-        </div>
-        <div class="navbar__logo-text">
-          <div class="navbar__logo-firm">Juridiskais birojs</div>
-          <div class="navbar__logo-name">VINDEX</div>
-        </div>
+        <img src="/vindex/images/logo-vindex.png" alt="Juridiskais birojs Vindex" class="navbar__logo-img">
       </a>
 
       <div class="navbar__links">
@@ -368,7 +363,10 @@
           </div>
         </div>
         <div class="fade-right">
-          <form class="contact-form" action="#" method="POST">
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY">
+            <input type="hidden" name="subject" value="Jauns pieteikums no vindex.lv">
+            <input type="hidden" name="redirect" value="https://dev.omarketing.lv/vindex/">
             <div class="form__row">
               <div class="form__group">
                 <label class="form__label" for="name">Vārds, uzvārds</label>

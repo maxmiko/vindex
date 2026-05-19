@@ -85,38 +85,7 @@
     animElements.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // --- Contact form ---
-  var form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      var origText = btn.textContent;
-      btn.textContent = '...';
-      btn.disabled = true;
-
-      // Collect data
-      var data = new FormData(form);
-      var obj = {};
-      data.forEach(function (val, key) { obj[key] = val; });
-
-      // Simple mailto fallback
-      var subject = encodeURIComponent('Pieteikums no vindex.lv');
-      var body = encodeURIComponent(
-        'Vārds: ' + (obj.name || '') + '\n' +
-        'Tālrunis: ' + (obj.phone || '') + '\n' +
-        'E-pasts: ' + (obj.email || '') + '\n' +
-        'Ziņojums: ' + (obj.message || '')
-      );
-      window.location.href = 'mailto:info@vindex.lv?subject=' + subject + '&body=' + body;
-
-      setTimeout(function () {
-        btn.textContent = origText;
-        btn.disabled = false;
-        form.reset();
-      }, 1000);
-    });
-  }
+  // --- Contact form (Web3Forms handles submission) ---
 
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

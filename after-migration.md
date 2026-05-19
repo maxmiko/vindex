@@ -83,3 +83,20 @@ Point vindex.lv A record to cPanel server IP.
 - sitemap.xml accessible
 - Google Search Console verified
 - Analytics tracking works (after consent)
+
+## 13. GitHub Repository Visibility
+
+Currently the repo is **PUBLIC** because cPanel git pull requires unauthenticated HTTPS access.
+
+For a client project, decide:
+
+**Option A: Keep public** — OK if no secrets in code (Web3Forms key is public by design). Source code of a static site has no sensitive logic. Most law firm websites are not targets for source code theft.
+
+**Option B: Make private + deploy token** — More professional for client work. Steps:
+1. Generate a GitHub Personal Access Token (fine-grained, read-only, repo scope)
+2. On the server, update remote URL:
+   `git remote set-url origin https://TOKEN@github.com/maxmiko/vindex.git`
+3. Then make repo private: `gh repo edit maxmiko/vindex --visibility private --accept-visibility-change-consequences`
+4. Test that `git pull` still works
+
+**Option C: Transfer repo to client's GitHub** — Best long-term. Client owns their code.

@@ -5,7 +5,6 @@ deployment:
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R en $DEPLOYPATH
     - /bin/cp -R pakalpojumi $DEPLOYPATH
     - /bin/cp -R birojs $DEPLOYPATH

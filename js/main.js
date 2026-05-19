@@ -85,7 +85,59 @@
     animElements.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // --- Contact form (Web3Forms handles submission) ---
+  // --- Contact form (Web3Forms via AJAX) ---
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var origText = btn.textContent;
+      var isLV = document.documentElement.lang === 'lv';
+
+      btn.textContent = isLV ? 'Nosūta...' : 'Sending...';
+      btn.disabled = true;
+
+      var data = new FormData(form);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://api.web3forms.com/submit');
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          form.reset();
+          btn.textContent = isLV ? 'Nosūtīts!' : 'Sent!';
+          btn.style.backgroundColor = '#2e7d32';
+          btn.style.color = '#fff';
+          setTimeout(function () {
+            btn.textContent = origText;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+          }, 3000);
+        } else {
+          btn.textContent = isLV ? 'Kļūda. Mēģiniet vēlreiz.' : 'Error. Try again.';
+          btn.style.backgroundColor = '#c62828';
+          btn.style.color = '#fff';
+          setTimeout(function () {
+            btn.textContent = origText;
+            btn.style.backgroundColor = '';
+            btn.style.color = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      };
+      xhr.onerror = function () {
+        btn.textContent = isLV ? 'Kļūda. Mēģiniet vēlreiz.' : 'Error. Try again.';
+        setTimeout(function () {
+          btn.textContent = origText;
+          btn.style.backgroundColor = '';
+          btn.style.color = '';
+          btn.disabled = false;
+        }, 3000);
+      };
+      xhr.send(data);
+    });
+  }
 
   // --- Smooth scroll for anchor links ---
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

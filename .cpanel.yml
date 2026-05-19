@@ -11,3 +11,4 @@ deployment:
     - /bin/cp -R kontakti $DEPLOYPATH
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp deploy.php $DEPLOYPATH

@@ -3,12 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/omarketi/dev.omarketing.lv/vindex/
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R css $DEPLOYPATH
-    - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R en $DEPLOYPATH
-    - /bin/cp -R pakalpojumi $DEPLOYPATH
-    - /bin/cp -R birojs $DEPLOYPATH
-    - /bin/cp -R kontakti $DEPLOYPATH
-    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp -R * $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
-    - /bin/cp deploy.php $DEPLOYPATH

@@ -1404,10 +1404,9 @@ ul { list-style: none; }
 /* --- Animations --- */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
@@ -1426,6 +1425,39 @@ ul { list-style: none; }
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Stagger delays for bento grid cards */
+.svc-bento .fade-in:nth-child(1)  { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(2)  { transition-delay: 0.08s; }
+.svc-bento .fade-in:nth-child(3)  { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(4)  { transition-delay: 0.08s; }
+.svc-bento .fade-in:nth-child(5)  { transition-delay: 0.16s; }
+.svc-bento .fade-in:nth-child(6)  { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(7)  { transition-delay: 0.08s; }
+.svc-bento .fade-in:nth-child(8)  { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(9)  { transition-delay: 0.08s; }
+.svc-bento .fade-in:nth-child(10) { transition-delay: 0.16s; }
+.svc-bento .fade-in:nth-child(11) { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(12) { transition-delay: 0.08s; }
+.svc-bento .fade-in:nth-child(13) { transition-delay: 0.00s; }
+.svc-bento .fade-in:nth-child(14) { transition-delay: 0.08s; }
+
+/* Stagger for birojs stats */
+.birojs-stats__grid .fade-in:nth-child(1) { transition-delay: 0.00s; }
+.birojs-stats__grid .fade-in:nth-child(2) { transition-delay: 0.10s; }
+.birojs-stats__grid .fade-in:nth-child(3) { transition-delay: 0.20s; }
+.birojs-stats__grid .fade-in:nth-child(4) { transition-delay: 0.30s; }
+
+/* Mobile: replace X-axis animations with Y to avoid horizontal overflow */
+@media (max-width: 768px) {
+  .fade-left, .fade-right {
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-left.visible, .fade-right.visible {
+    transform: translateY(0);
+  }
+}
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {

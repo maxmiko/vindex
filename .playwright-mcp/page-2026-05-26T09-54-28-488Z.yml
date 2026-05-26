@@ -1,0 +1,133 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e9]:
+        - link "Vindex" [ref=e14] [cursor=pointer]:
+          - /url: https://vindex.lv/
+          - img "Vindex" [ref=e15]
+        - generic [ref=e16]:
+          - navigation "Primary Site Navigation" [ref=e20]:
+            - list [ref=e22]:
+              - listitem [ref=e23]:
+                - link "Sākums" [ref=e24] [cursor=pointer]:
+                  - /url: https://vindex.lv/
+              - listitem [ref=e25]:
+                - link "Pakalpojumi" [ref=e26] [cursor=pointer]:
+                  - /url: https://vindex.lv/pakalpojumi/
+              - listitem [ref=e27]:
+                - link "Birojs" [ref=e28] [cursor=pointer]:
+                  - /url: https://vindex.lv/birojs/
+              - listitem [ref=e29]:
+                - link "Kontakti" [ref=e30] [cursor=pointer]:
+                  - /url: https://vindex.lv/kontakti/
+              - listitem [ref=e31]:
+                - menuitem "Switch to English" [ref=e32] [cursor=pointer]:
+                  - generic [ref=e33]: English
+          - 'button "Call us: +371 29225530" [ref=e36] [cursor=pointer]':
+            - generic [ref=e37]: "Call us: +371 29225530"
+    - main [ref=e41]:
+      - article [ref=e42]:
+        - generic [ref=e44]:
+          - heading "Pakalpojumi" [level=1] [ref=e52]
+          - heading "Mēs piedāvājam sekojošus pakalpojumus:" [level=2] [ref=e63]
+          - generic [ref=e73]:
+            - heading "Līgumtiesības" [level=2] [ref=e76]
+            - paragraph [ref=e79]: Birojam ir ilgstoša pieredze gan vietējo, gan pārrobežu līgumprojektu sagatavošanā, izvērtēšanā, koriģēšanā un saskaņošanā. Esam snieguši juridiskus atzinumus par jau noslēgtiem līgumiem un ar to izpildi saistītajiem riskiem. Strādājot ar līgumprojektiem tiek modelēti dažādi attīstības scenāriji un sniegti ieteikumi par riskiem un tālākiem soļiem. Pārstāvam klientus līgumu sarunās, saskaņojam pozīcijas ar līgumpartneriem, kā arī palīdzam apzināties klientam visus riskus slēdzot līgumus
+          - generic [ref=e83]:
+            - heading "Būvniecības jautājumi" [level=2] [ref=e86]
+            - paragraph [ref=e89]: Birojs ir sniedzis juridisko nodrošinājumu lielākajiem būvniecības objektiem neatkarīgās Latvijas vēsturē – Nacionālās bibliotēkas būvniecībai, 2. sliežu ceļu būvniecībā Tīnūži-Krustpils, Krievu salas būvniecībai, Dienvidu tiltu būvniecībai u.c. Līdz ar to mums ir praktiska pieredze šādu projektu realizācijā, nodrošinot visu iesaistīto pušu līdzsvarotu sadarbību, objektu savlaicīgu un kvalitatīvu būvniecību, izvairoties no nevajadzīgām tiesvedībām.
+          - generic [ref=e105]:
+            - heading "Komerctiesības" [level=2] [ref=e108]
+            - paragraph [ref=e111]: Nodrošinām pilna spektra juridiskos pakalpojumus uzņēmējdarbības nodrošināšanai. Sniedzam juridisko palīdzību par dažādu komersantu un citu juridisko personu dibināšanu un reģistrēšanu, dalībnieku sapulču sasaukšanu un noturēšanu, dividenžu izmaksu un akcionāru strīdu risināšanu. Esam īstenojuši sarežģītas uzņēmumu reorganizācijas, kā arī kā pirmie Latvijā veikuši uzņēmuma juridiskās adreses pārcelšanu no vienas Eiropas Savienības dalībvalsts uz citu.
+          - generic [ref=e115]:
+            - heading "Uzņēmumu iegādes un apvienošanas darījumi" [level=2] [ref=e118]
+            - paragraph [ref=e121]: Birojam ir ievērojama pieredze juridiskās palīdzības sniegšanā uzņēmumu iegādes un apvienošanās darījumos, pārstāvot gan pircēju, gan pārdevēju. Esam veikuši uzņēmumu juridiskās izpētes, atklājot ar uzņēmuma iegādi saistītos riskus un palīdzot klientam iegādāties uzņēmumu uz izdevīgākiem nosacījumiem. Nodrošinām visas nepieciešamās dokumentācijas sagatavošanu, izvērtēšanu un koriģēšanu saistībā ar šiem darījumiem.
+          - generic [ref=e137]:
+            - heading "Publiskie iepirkumi" [level=2] [ref=e140]
+            - paragraph [ref=e143]: Birojs daudzus gadus ir darbojies publisko iepirkumu jomā – pārstāvot gan pretendentus, kas piedalās izsludinātos iepirkumos, palīdzot noformēt piedāvājumus, precizējot līgumu projektus, apstrīdot pieņemtos lēmumus, gan arī konsultējot uzņēmējus un publisko tiesību subjektus saistībā ar iepirkumu organizēšanu, prasību izvirzīšanu kandidātiem vai pretendentiem, līgumu grozīšanu, kā arī citiem jautājumiem. Palīdzam sagatavot sūdzības Iepirkumu uzraudzības birojā, kā arī pārstāvam klientus sūdzību izskatīšanā iestādē un tiesā. Pārsūdzot klientam nelabvēlīgu lēmumus, esam panākuši pozitīvus lēmumus, tai skaitā izmaiņas tiesu praksē attiecībā uz normatīvo aktu interpretāciju un piemērošanu iepirkumu jomā.
+          - generic [ref=e147]:
+            - heading "Konkurences tiesības" [level=2] [ref=e150]
+            - paragraph [ref=e153]: Birojs strādā Konkurences likuma regulētajiem jautājumiem. Palīdzam izstrādāt iekšējos noteikumus konkurences tiesību ievērošanas nodrošināšanā, lai preventīvi izvairītos no konkurences tiesību pārkāpumiem. Pārstāvam klientu intereses gan Konkurence padomē, gan tiesā. Palīdzam sagatavot ziņojumus saistībā ar tirgus dalībnieku apvienošanos, un konsultējam citos klientus interesējošos jautājumos.
+          - generic [ref=e169]:
+            - heading "Nekustamais īpašums" [level=2] [ref=e172]
+            - paragraph [ref=e175]: Sniedzam juridisko atbalstu klientiem jautājumos saistībā ar nekustamajiem īpašumiem. Konsultējam jautājumos, kas saistīti ar nekustamo īpašumu pirkšanu, pārdošanu, iznomāšanu, nomāšanu, servitūtu nodibināšanu, grozīšanu vai dzēšanu, īpašumu sadalīšanu vai apvienošanu, kopīpašuma tiesiskajiem aspektiem, apsaimniekošanas, īres un nomas jautājumiem.
+          - generic [ref=e179]:
+            - heading "Nodokļu tiesības" [level=2] [ref=e182]
+            - paragraph [ref=e185]: Birojs sniedz konsultācijas dažādos nodokļu tiesību jautājumos. Gatavojot darījumus un līgumu projektus, iesakām klientiem optimālākos risinājumus nodokļu plānošanas jautājumos. Palīdzam saistībā ar nepieciešamajām reģistrācijām un dokumentu iesniegšanu Valsts ieņēmumu dienestā. Pārstāvam klientus strīdos ar Valsts ieņēmumu dienestu gan iestādē, gan tiesā. Birojam ir pieredze saistībā ar prejudiciālā nolēmuma pieprasīšanu no Eiropas Savienības tiesas saistībā ar normatīvo aktu interpretāciju, klienta pārstāvēšanu šajā tiesā Luksemburgā, kā rezultātā tika panākts klientam labvēlīgs tiesas nolēmums.
+          - generic [ref=e201]:
+            - heading "Darba tiesības" [level=2] [ref=e204]
+            - paragraph [ref=e207]: Sniedzam konsultācijas un palīdzam sagatavot darba līgumus, vienošanās par konkurences noteikumu ievērošanu, kā arī dažādus darba devēju iekšējo tiesību aktus. Sniedzam juridisko palīdzību dažādu darba strīdu risināšanā, kā arī jautājumos, kas saistīti ar darba tiesisko attiecību izbeigšanu un atjaunošanu darbā. Esam veiksmīgi pārstāvējuši klientus tiesā, panākot vēlamo rezultātu, kā arī ar mūsu izmantoto argumentāciju, snieguši ieguldījumu judikatūras attīstībā šajā tiesību nozarē.
+          - generic [ref=e211]:
+            - heading "Imigrācijas tiesības" [level=2] [ref=e214]
+            - paragraph [ref=e217]: Regulāri sniedzam konsultācijas imigrācijas tiesību jautājumos, palīdzot noformēt dažāda veida vīzas, termiņuzturēšanās un pastāvīgās uzturēšanās atļaujas. Esam palīdzējuši sagatavot dokumentus bēgļa statusa iegūšanai un veiksmīgi pārsūdzējuši lēmumu par personas izdošanu uz ārvalsti. Risinām sarežģītus jautājumus saistībā ar imigrācijas tiesībām, kā arī pārsūdzam Pilsonības un migrācijas lietu pārvaldes lēmumus iestādē un tiesā. Birojam ir pieredze sūdzības iesniegšanā un klientam pārstāvēšanā Eiropas cilvēktiesību tiesā par nelabvēlīga tiesas nolēmumu, kas rezultējās ar labvēlīgu ECT spriedumu un kompensācijas izmaksāšanu klientam.
+          - generic [ref=e233]:
+            - heading "Ģimenes un mantojuma tiesības" [level=2] [ref=e236]
+            - generic [ref=e238]:
+              - paragraph [ref=e239]: Sniedzam kvalitatīvu juridisko palīdzību ģimenes tiesību jautājumos saistībā ar laulības šķiršanu, laulāto kopmantas dalīšanu, ieguldījuma atprasīšanu otra laulātā atsevišķajā mantā, jautājumos par aizgādības un saskarsmes tiesībām. Pārstāvam klientus bāriņtiesā un tiesā, kā arī palīdzam sagatavot iesniegumus un sūdzības citām tiesībsargājošām iestādēm. Strādājam ar starptautiskām lietām, kurās tiek risināti jurisdikcijas jautājumi, bērnu nolaupīšanas un atgriešanas mītnes valstī jautājumi.
+              - paragraph [ref=e240]: Sniedzam konsultācijas mantojuma tiesību jautājumos un esam guvuši vērā ņemamu pieredzi saistībā ar lietām, kurās mantinieki un/vai mantojuma masa atrodas vairākās valstīs, tādēļ mantojuma noformēšana kārtojama vairāku valstu tiesās saskaņā ar šo valstu tiesībām.
+          - generic [ref=e244]:
+            - heading "Administratīvās tiesības" [level=2] [ref=e247]
+            - paragraph [ref=e250]: Palīdzam klientiem administratīvo tiesību un administratīvā procesa tiesību jautājumos. Sagatavojam pieteikumus par pieņemto administratīvo aktu, kā arī iestādes faktiskās rīcības apstrīdēšanu un pārsūdzēšanu. Pārstāvam klientu intereses administratīvajā procesā iestādēs un tiesās.
+          - generic [ref=e266]:
+            - heading "Tiesvedība" [level=2] [ref=e269]
+            - paragraph [ref=e272]: Palīdzam klientiem visos gadījumos, kad domstarpības un konfliktu risināšana nonākusi tiesā. Lai arī tiesvedība nav mūsu biroja galvenā specializācija, esam uzkrājuši plašu pieredzi, veiksmīgi aizstāvot savu klientu intereses tiesā sarežģītās lietās. Gadījumos, kad konkrētajos jautājumos nespējam sniegt labāko iespējamo palīdzību, informējam par to klientu un palīdzam piesaistīt atbilstošus speciālistus.
+          - generic [ref=e276]:
+            - heading "Kā tas strādā?" [level=2] [ref=e279]
+            - paragraph [ref=e282]:
+              - text: Mēs piedāvājam labāku risinājumu!
+              - text: Noslēgt abonenta līgumu par juridisko apkalpošanu
+            - generic [ref=e284]:
+              - generic [ref=e289]:
+                - figure [ref=e290]
+                - generic [ref=e291]:
+                  - heading "Juridiskais izvērtējums" [level=4] [ref=e292]
+                  - paragraph [ref=e293]: Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus
+              - generic [ref=e298]:
+                - figure [ref=e299]
+                - generic [ref=e300]:
+                  - heading "Tikšanās ar klientu" [level=4] [ref=e301]
+                  - paragraph [ref=e302]: Tiekamies ar Klientu, ziņojam par rezultātiem un izvirzām priekšlikumu turpmākai sadarbībai
+              - generic [ref=e307]:
+                - figure [ref=e308]
+                - generic [ref=e309]:
+                  - heading "Līguma noslēgšana" [level=4] [ref=e310]
+                  - paragraph [ref=e311]: Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi
+            - link "Pirmā Konsultācija par brīvu" [ref=e315] [cursor=pointer]:
+              - /url: "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6MTIyNywidG9nZ2xlIjpmYWxzZX0%3D"
+              - generic [ref=e317]: Pirmā Konsultācija par brīvu
+          - generic [ref=e321]:
+            - heading "Kontakti" [level=2] [ref=e328]
+            - paragraph [ref=e331]: Pirmā konsultācija par brīvu!
+            - generic [ref=e333]:
+              - generic [ref=e338]:
+                - generic [ref=e341]: 
+                - generic [ref=e342]:
+                  - heading "E-pasts" [level=4] [ref=e343]
+                  - paragraph [ref=e344]:
+                    - link "info@vindex.lv" [ref=e345] [cursor=pointer]:
+                      - /url: mailto:info@vindex.lv
+              - generic [ref=e350]:
+                - generic [ref=e353]: 
+                - generic [ref=e354]:
+                  - heading "Adrese" [level=4] [ref=e355]
+                  - paragraph [ref=e356]: Pumpuru iela 17, Priežciems, Babītes pagasts, Mārupes novads, LV-2101
+              - generic [ref=e361]:
+                - generic [ref=e364]: 
+                - generic [ref=e365]:
+                  - heading "Telefons" [level=4] [ref=e366]
+                  - paragraph [ref=e367]:
+                    - link "+371 29225530" [ref=e368] [cursor=pointer]:
+                      - /url: tel:371 29225530
+    - generic [ref=e376]:
+      - heading "Juridiskie pakalpojumi" [level=2] [ref=e383]
+      - paragraph [ref=e386]: Personalizēti un uzticami juridiskie pakalpojumi par paredzamu ikmēneša maksu tieši Tava uzņēmuma vajadzībām.
+      - link "Pirmā konsultācija par brīvu" [ref=e390] [cursor=pointer]:
+        - /url: "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6MTIyNywidG9nZ2xlIjpmYWxzZX0%3D"
+        - generic [ref=e392]: Pirmā konsultācija par brīvu
+    - contentinfo [ref=e393]:
+      - paragraph [ref=e400]:
+        - text: ©2025 All Rights Reserved
+        - text: Vindex
+  - generic [ref=e401]: desktop

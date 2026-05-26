@@ -1,0 +1,119 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e9]:
+        - link "Vindex" [ref=e14] [cursor=pointer]:
+          - /url: https://vindex.lv/
+          - img "Vindex" [ref=e15]
+        - generic [ref=e16]:
+          - navigation "Primary Site Navigation" [ref=e20]:
+            - list [ref=e22]:
+              - listitem [ref=e23]:
+                - link "Sākums" [ref=e24] [cursor=pointer]:
+                  - /url: https://vindex.lv/
+              - listitem [ref=e25]:
+                - link "Pakalpojumi" [ref=e26] [cursor=pointer]:
+                  - /url: https://vindex.lv/pakalpojumi/
+              - listitem [ref=e27]:
+                - link "Birojs" [ref=e28] [cursor=pointer]:
+                  - /url: https://vindex.lv/birojs/
+              - listitem [ref=e29]:
+                - link "Kontakti" [ref=e30] [cursor=pointer]:
+                  - /url: https://vindex.lv/kontakti/
+              - listitem [ref=e31]:
+                - menuitem "Switch to English" [ref=e32] [cursor=pointer]:
+                  - generic [ref=e33]: English
+          - 'button "Call us: +371 29225530" [ref=e36] [cursor=pointer]':
+            - generic [ref=e37]: "Call us: +371 29225530"
+    - main [ref=e41]:
+      - article [ref=e42]:
+        - generic [ref=e44]:
+          - generic [ref=e49]:
+            - heading "Juridiskais birojs Vindex" [level=1] [ref=e52]
+            - paragraph [ref=e55]: Darbojas juridisko pakalpojumu jomā vairāk kā 27 gadus
+          - generic [ref=e59]:
+            - heading "Par Mums" [level=2] [ref=e66]
+            - paragraph [ref=e69]:
+              - strong [ref=e70]: Juridiskais birojs Vindex
+              - text: ", SIA veiksmīgi darbojas juridisko pakalpojumu jomā vairāk kā 27 gadus. Birojs strādā ar dažādām tiesību nozarēm, taču primāri īstenojot nozīmīgu būvniecības objektu un biznesa projektu juridisko nodrošinājumu. Lai to varētu īstenot, nepieciešams veikt nopietnu juridisko sagatavošanos jau pat vēl sarunu uzsākšanas. Lai arī pasaulē viss strauji mainās, mūsu pieredze ļauj mums būt drošiem par to, ka spēsim palīdzēt klientiem rast risinājumus vissarežģītākajās situācijās."
+          - generic [ref=e78]:
+            - heading "Kā mēs strādājam" [level=2] [ref=e85]
+            - paragraph [ref=e88]:
+              - text: Mēs piedāvājam labāku risinājumu!
+              - text: Noslēgt abonenta līgumu par juridisko apkalpošanu
+            - generic [ref=e90]:
+              - generic [ref=e95]:
+                - figure [ref=e96]
+                - generic [ref=e97]:
+                  - heading "Juridiskais izvērtējums" [level=4] [ref=e98]
+                  - paragraph [ref=e99]: Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus
+              - generic [ref=e104]:
+                - figure [ref=e105]
+                - generic [ref=e106]:
+                  - heading "Tikšanās ar klientu" [level=4] [ref=e107]
+                  - paragraph [ref=e108]: Tiekamies ar Klientu, ziņojam par rezultātiem un izvirzam priekšlikumu turpmākai sadarbībai
+              - generic [ref=e113]:
+                - figure [ref=e114]
+                - generic [ref=e115]:
+                  - heading "Līguma noslēgšana" [level=4] [ref=e116]
+                  - paragraph [ref=e117]: Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi
+            - link "Pirmā Konsultācija par brīvu" [ref=e121] [cursor=pointer]:
+              - /url: "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6MTIyNywidG9nZ2xlIjpmYWxzZX0%3D"
+              - generic [ref=e123]: Pirmā Konsultācija par brīvu
+          - generic [ref=e125]:
+            - generic [ref=e130]:
+              - generic [ref=e133]: 
+              - generic [ref=e134]:
+                - heading "27+" [level=3] [ref=e135]
+                - paragraph [ref=e136]: Gadu pieredze
+            - generic [ref=e141]:
+              - generic [ref=e144]: 
+              - generic [ref=e145]:
+                - heading "1 000 000 000 +" [level=3] [ref=e146]
+                - paragraph [ref=e147]: EUR apkalpoti līgumi
+            - generic [ref=e152]:
+              - generic [ref=e155]: 
+              - generic [ref=e156]:
+                - heading "100+" [level=3] [ref=e157]
+                - paragraph [ref=e158]: Atrisinātās lietas
+            - generic [ref=e163]:
+              - generic [ref=e166]: 
+              - generic [ref=e167]:
+                - heading "100+" [level=3] [ref=e168]
+                - paragraph [ref=e169]: Laimīgi klienti
+          - generic [ref=e173]:
+            - heading "Kontakti" [level=2] [ref=e180]
+            - paragraph [ref=e183]: Pirmā konsultācija par brīvu!
+            - generic [ref=e185]:
+              - generic [ref=e190]:
+                - generic [ref=e193]: 
+                - generic [ref=e194]:
+                  - heading "E-pasts" [level=4] [ref=e195]
+                  - paragraph [ref=e196]:
+                    - link "info@vindex.lv" [ref=e197] [cursor=pointer]:
+                      - /url: mailto:info@vindex.lv
+              - generic [ref=e202]:
+                - generic [ref=e205]: 
+                - generic [ref=e206]:
+                  - heading "Adrese" [level=4] [ref=e207]
+                  - paragraph [ref=e208]: Pumpuru iela 17, Priežciems, Babītes pagasts, Mārupes novads, LV-2101
+              - generic [ref=e213]:
+                - generic [ref=e216]: 
+                - generic [ref=e217]:
+                  - heading "Telefons" [level=4] [ref=e218]
+                  - paragraph [ref=e219]:
+                    - link "+371 29225530" [ref=e220] [cursor=pointer]:
+                      - /url: tel:371 29225530
+    - generic [ref=e228]:
+      - heading "Juridiskie pakalpojumi" [level=2] [ref=e235]
+      - paragraph [ref=e238]: Personalizēti un uzticami juridiskie pakalpojumi par paredzamu ikmēneša maksu tieši Tava uzņēmuma vajadzībām.
+      - link "Pirmā konsultācija par brīvu" [ref=e242] [cursor=pointer]:
+        - /url: "#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6MTIyNywidG9nZ2xlIjpmYWxzZX0%3D"
+        - generic [ref=e244]: Pirmā konsultācija par brīvu
+    - contentinfo [ref=e245]:
+      - paragraph [ref=e252]:
+        - text: ©2025 All Rights Reserved
+        - text: Vindex
+  - generic [ref=e253]: desktop

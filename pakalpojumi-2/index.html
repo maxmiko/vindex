@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakalpojumi — Kartes | Vindex</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap"></noscript>
+  <link rel="stylesheet" href="/vindex/css/style.css">
+  <style>
+    /* ── Image-box zigzag layout ── */
+    .ib-section {
+      background: var(--cream);
+      padding: 52px 0 96px;
+    }
+
+    /* View switcher */
+    .view-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+    }
+    .view-switch__label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(26,39,68,0.4);
+      margin-right: 4px;
+    }
+    .view-switch a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid rgba(26,39,68,0.14);
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(26,39,68,0.48);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .view-switch a.active,
+    .view-switch a:hover { border-color: var(--navy); color: var(--navy); }
+    .view-switch a svg { width: 13px; height: 13px; }
+
+    /* Cards list */
+    .ib-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .ib-card {
+      background: #fff;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      border: 1px solid rgba(26,39,68,0.08);
+      box-shadow: 0 2px 16px rgba(26,39,68,0.04);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .ib-card:hover { background: #fdfcfa; box-shadow: 0 6px 28px rgba(26,39,68,0.09); }
+
+    /* Зигзаг: чётные — фото справа (of .ib-card игнорирует баннеры) */
+    .ib-card:nth-child(even of .ib-card) {
+      grid-template-columns: 1fr 400px;
+    }
+    .ib-card:nth-child(even of .ib-card) .ib-card__img {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .ib-card:nth-child(even of .ib-card) .ib-card__body {
+      grid-column: 1;
+      grid-row: 1;
+      border-left: none;
+      border-right: 3px solid transparent;
+      padding-left: 48px;
+      padding-right: 40px;
+    }
+    .ib-card:nth-child(even of .ib-card):hover .ib-card__body {
+      border-left-color: transparent;
+      border-right-color: var(--gold);
+    }
+
+    /* Image column */
+    .ib-card__img {
+      position: relative;
+      overflow: hidden;
+      min-height: 290px;
+    }
+    .ib-card__img img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.72) brightness(0.93);
+      transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.45s ease;
+    }
+    .ib-card:hover .ib-card__img img {
+      transform: scale(1.06);
+      filter: saturate(0.88) brightness(1.03);
+    }
+    /* Убираем цифры */
+    .ib-card__num { display: none; }
+
+    /* Text column */
+    .ib-card__body {
+      padding: 40px 40px 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    .ib-card:hover .ib-card__body { border-left-color: var(--gold); }
+
+    .ib-card__title {
+      font-family: var(--font-serif);
+      color: var(--navy);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .ib-card__desc {
+      font-family: var(--font-sans);
+      color: var(--text-body);
+      font-size: 0.93rem;
+      line-height: 1.78;
+      margin-bottom: 0;
+    }
+
+    .ib-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 22px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,39,68,0.22);
+      padding-bottom: 2px;
+      transition: gap 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .ib-card__link:hover { gap: 10px; color: var(--gold-hover); border-color: var(--gold-hover); }
+    .ib-card__link svg { width: 11px; height: 11px; }
+
+    @media (max-width: 1024px) {
+      .ib-card { grid-template-columns: 320px 1fr; }
+      .ib-card:nth-child(even of .ib-card) { grid-template-columns: 1fr 320px; }
+    }
+    @media (max-width: 860px) {
+      .ib-card, .ib-card:nth-child(even of .ib-card) { grid-template-columns: 1fr; }
+      .ib-card:nth-child(even of .ib-card) .ib-card__img { grid-column: 1; grid-row: 1; }
+      .ib-card:nth-child(even of .ib-card) .ib-card__body { grid-column: 1; grid-row: 2; border-right: none; border-top: 3px solid transparent; padding: 24px 28px; border-left: none; }
+      .ib-card:nth-child(even of .ib-card):hover .ib-card__body { border-right-color: transparent; border-top-color: var(--gold); }
+      .ib-card__img { min-height: 220px; }
+      .ib-card__body { border-left: none; border-top: 3px solid transparent; padding: 24px 28px; }
+      .ib-card:hover .ib-card__body { border-left-color: transparent; border-top-color: var(--gold); }
+    }
+    @media (max-width: 640px) {
+      .ib-card__img { min-height: 180px; }
+      .ib-card__body, .ib-card:nth-child(even of .ib-card) .ib-card__body { padding: 20px 20px; }
+    }
+
+    /* ── Elegant separator banners ── */
+    .ib-banner {
+      background: var(--navy);
+      padding: 44px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .ib-banner__rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.22), transparent);
+    }
+    .ib-banner__rule--r {
+      background: linear-gradient(to left, rgba(201,168,76,0.22), transparent);
+    }
+    .ib-banner__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .ib-banner__ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ib-banner__ornament span {
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: rgba(201,168,76,0.38);
+    }
+    .ib-banner__diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.65;
+    }
+    .ib-banner__text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      max-width: 380px;
+    }
+    @media (max-width: 640px) { .ib-banner { padding: 32px 24px; gap: 18px; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" role="navigation">
+    <div class="navbar__inner">
+      <a href="/vindex/" class="navbar__logo">
+        <picture><source srcset="/vindex/images/logo-vindex.webp" type="image/webp"><img src="/vindex/images/logo-vindex.png" alt="Juridiskais birojs Vindex" class="navbar__logo-img"></picture>
+      </a>
+      <div class="navbar__links">
+        <a href="/vindex/" class="navbar__link">Sākums</a>
+        <div class="navbar__item">
+          <a href="/vindex/pakalpojumi/" class="navbar__link active">Pakalpojumi</a>
+          <div class="navbar__dropdown">
+            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+              Galerija
+            </a>
+            <a href="/vindex/pakalpojumi-2/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+              Kartes
+            </a>
+            <a href="/vindex/pakalpojumi-3/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
+              Ikonu skats
+            </a>
+          </div>
+        </div>
+        <a href="/vindex/birojs/" class="navbar__link">Birojs</a>
+        <a href="/vindex/kontakti/" class="navbar__link">Kontakti</a>
+        <a href="/vindex/en/services/" class="navbar__lang">EN</a>
+      </div>
+      <button class="navbar__burger" aria-label="Atvērt izvēlni" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="navbar__mobile" role="menu">
+      <a href="/vindex/" class="navbar__mobile-link">Sākums</a>
+      <a href="/vindex/pakalpojumi/" class="navbar__mobile-link">Pakalpojumi — Galerija</a>
+      <a href="/vindex/pakalpojumi-2/" class="navbar__mobile-link">Pakalpojumi — Kartes</a>
+      <a href="/vindex/birojs/" class="navbar__mobile-link">Birojs</a>
+      <a href="/vindex/kontakti/" class="navbar__mobile-link">Kontakti</a>
+      <div class="navbar__mobile-lang"><a href="/vindex/en/services/" class="navbar__lang">EN</a></div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Vindex</div>
+      <h1 class="page-hero__title">Pakalpojumi</h1>
+      <div class="divider divider--center" style="margin-top:16px"></div>
+      <p class="page-hero__subtitle">Mēs piedāvājam sekojošus pakalpojumus</p>
+      <p class="page-hero__lead">Vairāk kā 25 gadu pieredze komerctiesībās un būvniecības tiesībās ļauj mums piedāvāt precīzus un pārdomātus risinājumus. Neatkarīgi no uzdevuma sarežģītības — strādājam ar augstākajiem standartiem.</p>
+    </div>
+  </section>
+
+  <!-- IMAGE-BOX SERVICES -->
+  <section class="ib-section">
+    <div class="container">
+
+      <div class="view-switch">
+        <span class="view-switch__label">Skats:</span>
+        <a href="/vindex/pakalpojumi/">
+          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+          Galerija
+        </a>
+        <a href="/vindex/pakalpojumi-2/" class="active">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+          Kartes
+        </a>
+      </div>
+
+      <div class="ib-list">
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=75" alt="Līgumtiesības" loading="lazy">
+            <span class="ib-card__num">01</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Līgumtiesības</h3>
+            <p class="ib-card__desc">Birojam ir ilgstoša pieredze gan vietējo, gan pārrobežu līgumprojektu sagatavošanā, izvērtēšanā, koriģēšanā un saskaņošanā. Esam snieguši juridiskus atzinumus par jau noslēgtiem līgumiem un ar to izpildi saistītajiem riskiem. Strādājot ar līgumprojektiem tiek modelēti dažādi attīstības scenāriji un sniegti ieteikumi par riskiem un tālākiem soļiem. Pārstāvam klientus līgumu sarunās, saskaņojam pozīcijas ar līgumpartneriem, kā arī palīdzam apzināties klientam visus riskus slēdzot līgumus.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=75" alt="Būvniecības jautājumi" loading="lazy">
+            <span class="ib-card__num">02</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Būvniecības jautājumi</h3>
+            <p class="ib-card__desc">Birojs ir sniedzis juridisko nodrošinājumu lielākajiem būvniecības objektiem neatkarīgās Latvijas vēsturē – Nacionālās bibliotēkas būvniecībai, 2. sliežu ceļu būvniecībā Tīnūži–Krustpils, Krievu salas būvniecībai, Dienvidu tiltu būvniecībai u.c. Mums ir praktiska pieredze šādu projektu realizācijā, nodrošinot visu iesaistīto pušu līdzsvarotu sadarbību, objektu savlaicīgu un kvalitatīvu būvniecību, izvairoties no nevajadzīgām tiesvedībām.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=75" alt="Komerctiesības" loading="lazy">
+            <span class="ib-card__num">03</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Komerctiesības</h3>
+            <p class="ib-card__desc">Nodrošinām pilna spektra juridiskos pakalpojumus uzņēmējdarbības nodrošināšanai. Sniedzam juridisko palīdzību par dažādu komersantu un citu juridisko personu dibināšanu un reģistrēšanu, dalībnieku sapulču sasaukšanu un noturēšanu, dividenžu izmaksu un akcionāru strīdu risināšanu. Esam īstenojuši sarežģītas uzņēmumu reorganizācijas, kā arī kā pirmie Latvijā veikuši uzņēmuma juridiskās adreses pārcelšanu no vienas ES dalībvalsts uz citu.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=75" alt="M&A darījumi" loading="lazy">
+            <span class="ib-card__num">04</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Uzņēmumu iegādes un apvienošanas darījumi</h3>
+            <p class="ib-card__desc">Birojam ir ievērojama pieredze juridiskās palīdzības sniegšanā uzņēmumu iegādes un apvienošanās darījumos, pārstāvot gan pircēju, gan pārdevēju. Esam veikuši uzņēmumu juridiskās izpētes, atklājot ar uzņēmuma iegādi saistītos riskus un palīdzot klientam iegādāties uzņēmumu uz izdevīgākiem nosacījumiem. Nodrošinām visas nepieciešamās dokumentācijas sagatavošanu, izvērtēšanu un koriģēšanu saistībā ar šiem darījumiem.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <div class="ib-banner">
+          <div class="ib-banner__rule"></div>
+          <div class="ib-banner__body">
+            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
+            <p class="ib-banner__text">Sarežģītu komerciālu darījumu izveide un juridiskā aizsardzība kopš 1999. gada</p>
+          </div>
+          <div class="ib-banner__rule ib-banner__rule--r"></div>
+        </div>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=75" alt="Publiskie iepirkumi" loading="lazy">
+            <span class="ib-card__num">05</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Publiskie iepirkumi</h3>
+            <p class="ib-card__desc">Birojs daudzus gadus ir darbojies publisko iepirkumu jomā — pārstāvot gan pretendentus, kas piedalās izsludinātos iepirkumos, palīdzot noformēt piedāvājumus, precizējot līgumu projektus, apstrīdot pieņemtos lēmumus, gan arī konsultējot uzņēmējus un publisko tiesību subjektus saistībā ar iepirkumu organizēšanu. Palīdzam sagatavot sūdzības Iepirkumu uzraudzības birojā, pārstāvam klientus sūdzību izskatīšanā iestādē un tiesā.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=600&q=75" alt="Konkurences tiesības" loading="lazy">
+            <span class="ib-card__num">06</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Konkurences tiesības</h3>
+            <p class="ib-card__desc">Birojs strādā Konkurences likuma regulētajiem jautājumiem. Palīdzam izstrādāt iekšējos noteikumus konkurences tiesību ievērošanas nodrošināšanā, lai preventīvi izvairītos no pārkāpumiem. Pārstāvam klientu intereses gan Konkurences padomē, gan tiesā. Palīdzam sagatavot ziņojumus saistībā ar tirgus dalībnieku apvienošanos un konsultējam citos klientus interesējošos jautājumos.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=75" alt="Nekustamais īpašums" loading="lazy">
+            <span class="ib-card__num">07</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Nekustamais īpašums</h3>
+            <p class="ib-card__desc">Sniedzam juridisko atbalstu klientiem jautājumos saistībā ar nekustamajiem īpašumiem. Konsultējam jautājumos, kas saistīti ar nekustamā īpašuma pirkšanu, pārdošanu, iznomāšanu, nomāšanu, servitūtu nodibināšanu, grozīšanu vai dzēšanu, īpašumu sadalīšanu vai apvienošanu, kopīpašuma tiesiskajiem aspektiem, apsaimniekošanas, īres un nomas jautājumiem.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=75" alt="Nodokļu tiesības" loading="lazy">
+            <span class="ib-card__num">08</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Nodokļu tiesības</h3>
+            <p class="ib-card__desc">Birojs sniedz konsultācijas dažādos nodokļu tiesību jautājumos. Gatavojot darījumus un līgumu projektus, iesakām klientiem optimālākos risinājumus nodokļu plānošanas jautājumos. Palīdzam saistībā ar nepieciešamajām reģistrācijām VID. Pārstāvam klientus strīdos ar VID gan iestādē, gan tiesā. Birojam ir pieredze saistībā ar prejudiciālā nolēmuma pieprasīšanu no ES tiesas, klienta pārstāvēšanu Luksemburgā — ar labvēlīgu spriedumu klientam.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <div class="ib-banner">
+          <div class="ib-banner__rule"></div>
+          <div class="ib-banner__body">
+            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
+            <p class="ib-banner__text">Pārstāvam klientus regulatīvajās iestādēs, Konkurences padomē un tiesās visā Eiropā</p>
+          </div>
+          <div class="ib-banner__rule ib-banner__rule--r"></div>
+        </div>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=75" alt="Darba tiesības" loading="lazy">
+            <span class="ib-card__num">09</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Darba tiesības</h3>
+            <p class="ib-card__desc">Sniedzam konsultācijas un palīdzam sagatavot darba līgumus, vienošanās par konkurences noteikumu ievērošanu, kā arī dažādus darba devēju iekšējo tiesību aktus. Sniedzam juridisko palīdzību dažādu darba strīdu risināšanā, jautājumos, kas saistīti ar darba tiesisko attiecību izbeigšanu un atjaunošanu darbā. Esam veiksmīgi pārstāvējuši klientus tiesā, panākuši vēlamo rezultātu un ar izmantoto argumentāciju snieguši ieguldījumu judikatūras attīstībā.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=75" alt="Imigrācijas tiesības" loading="lazy">
+            <span class="ib-card__num">10</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Imigrācijas tiesības</h3>
+            <p class="ib-card__desc">Regulāri sniedzam konsultācijas imigrācijas tiesību jautājumos, palīdzot noformēt dažāda veida vīzas, termiņuzturēšanās un pastāvīgās uzturēšanās atļaujas. Esam palīdzējuši sagatavot dokumentus bēgļa statusa iegūšanai un veiksmīgi pārsūdzējuši lēmumu par personas izdošanu uz ārvalsti. Birojam ir pieredze sūdzības iesniegšanā ECT — ar labvēlīgu spriedumu un kompensācijas izmaksāšanu klientam.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=75" alt="Ģimenes un mantojuma tiesības" loading="lazy">
+            <span class="ib-card__num">11</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Ģimenes un mantojuma tiesības</h3>
+            <p class="ib-card__desc">Sniedzam kvalitatīvu juridisko palīdzību ģimenes tiesību jautājumos: laulības šķiršana, laulāto kopmantas dalīšana, aizgādības un saskarsmes tiesības. Pārstāvam klientus bāriņtiesā un tiesā. Strādājam ar starptautiskām lietām — jurisdikcijas jautājumi, bērnu nolaupīšanas un atgriešanas mītnes valstī jautājumi. Sniedzam konsultācijas mantojuma tiesību jautājumos, tai skaitā lietās, kurās mantinieki atrodas vairākās valstīs.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=600&q=75" alt="Administratīvās tiesības" loading="lazy">
+            <span class="ib-card__num">12</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Administratīvās tiesības</h3>
+            <p class="ib-card__desc">Palīdzam klientiem administratīvo tiesību un administratīvā procesa tiesību jautājumos. Sagatavojam pieteikumus par pieņemto administratīvo aktu, kā arī iestādes faktiskās rīcības apstrīdēšanu un pārsūdzēšanu. Pārstāvam klientu intereses administratīvajā procesā iestādēs un tiesās.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+        <article class="ib-card fade-in">
+          <div class="ib-card__img">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=75" alt="Tiesvedība" loading="lazy">
+            <span class="ib-card__num">13</span>
+          </div>
+          <div class="ib-card__body">
+            <h3 class="ib-card__title">Tiesvedība</h3>
+            <p class="ib-card__desc">Palīdzam klientiem visos gadījumos, kad domstarpības un konfliktu risināšana nonākusi tiesā. Lai arī tiesvedība nav mūsu biroja galvenā specializācija, esam uzkrājuši plašu pieredzi, veiksmīgi aizstāvot savu klientu intereses tiesā sarežģītās lietās. Gadījumos, kad konkrētajos jautājumos nespējam sniegt labāko iespējamo palīdzību, informējam par to klientu un palīdzam piesaistīt atbilstošus speciālistus.</p>
+            <a href="/vindex/kontakti/" class="ib-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="section-label">Kā tas strādā?</div>
+        <h2 class="section-title">Mēs piedāvājam labāku risinājumu!</h2>
+        <div class="divider divider--center"></div>
+        <p class="section-subtitle">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
+      </div>
+      <div class="process__steps">
+        <div class="process-step fade-in">
+          <div class="process-step__num">01</div>
+          <h3 class="process-step__title">Juridiskais izvērtējums</h3>
+          <p class="process-step__desc">Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">02</div>
+          <h3 class="process-step__title">Tikšanās ar klientu</h3>
+          <p class="process-step__desc">Tiekamies ar klientu, ziņojam par rezultātiem un izvirzām priekšlikumu turpmākai sadarbībai</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">03</div>
+          <h3 class="process-step__title">Līguma noslēgšana</h3>
+          <p class="process-step__desc">Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__title serif">Pirmā konsultācija par brīvu!</div>
+      <a href="/vindex/kontakti/" class="btn btn--navy">Sazināties ar mums</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__contacts">
+        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
+        <h2 class="footer__contacts-heading">Kontakti</h2>
+        <p class="footer__contacts-sub">Pirmā konsultācija par brīvu.</p>
+        <div class="footer__contacts-grid">
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="footer__contact-label">E-pasts</div>
+            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="footer__contact-label">Adrese</div>
+            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babītes pagasts, Mārupes novads, LV-2101</div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="footer__contact-label">Telefons</div>
+            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__inner">
+        <div class="footer__copy">&copy; 2025 Juridiskais birojs Vindex. Visas tiesības aizsargātas.</div>
+        <div class="footer__links">
+          <a href="/vindex/privatuma-politika/" class="footer__link">Privātuma politika</a>
+          <a href="/vindex/sikdatnu-politika/" class="footer__link">Sīkdatņu politika</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="go-top" aria-label="Atpakaļ uz augšu" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+  <script src="/vindex/js/cookie-consent.js"></script>
+  <script src="/vindex/js/main.js?v=4"></script>
+</body>
+</html>

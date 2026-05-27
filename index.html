@@ -111,7 +111,14 @@
 
       <div class="navbar__links">
         <a href="/vindex/" class="navbar__link active">Sākums</a>
-        <a href="/vindex/pakalpojumi/" class="navbar__link">Pakalpojumi</a>
+        <div class="navbar__item">
+          <a href="/vindex/pakalpojumi/" class="navbar__link">Pakalpojumi</a>
+          <div class="navbar__dropdown">
+            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> Galerija</a>
+            <a href="/vindex/pakalpojumi-2/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg> Kartes</a>
+            <a href="/vindex/pakalpojumi-3/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg> Ikonu skats</a>
+          </div>
+        </div>
         <a href="/vindex/birojs/" class="navbar__link">Birojs</a>
         <a href="/vindex/kontakti/" class="navbar__link">Kontakti</a>
         <a href="/vindex/en/" class="navbar__lang">EN</a>
@@ -145,7 +152,21 @@
         <h1 class="hero__title"><span class="hero__title-prefix">Juridiskais birojs</span> Vindex</h1>
         <div class="hero__divider"></div>
         <p class="hero__subtitle">Personalizēti un uzticami juridiskie pakalpojumi</p>
-        <p class="hero__desc">Par paredzamu ikmēneša maksu tieši Tava uzņēmuma vajadzībām. Juridiskais birojs "Vindex" — ir birojs ar vairāk kā 25 gadu pieredzi komerctiesību, un jo īpaši būvniecības tiesību, jomā.</p>
+        <p class="hero__desc">Par paredzamu ikmēneša maksu tieši Tava uzņēmuma vajadzībām.</p>
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <strong>25+</strong>
+            <span>gadi pieredzē</span>
+          </div>
+          <div class="hero__meta-item">
+            <strong>Komerctiesības</strong>
+            <span>& būvniecība</span>
+          </div>
+          <div class="hero__meta-item">
+            <strong>Bezmaksas</strong>
+            <span>1. konsultācija</span>
+          </div>
+        </div>
         <div class="hero__buttons">
           <a href="/vindex/kontakti/" class="btn btn--gold">Sazināties</a>
           <a href="/vindex/pakalpojumi/" class="btn btn--outline">Pakalpojumi</a>
@@ -156,65 +177,9 @@
         <div class="hero__photo-caption">Gvido Senkāns<span>Partneris un vadītājs</span></div>
       </div>
     </div>
-    <a href="#pakalpojumi" class="hero__scroll" aria-label="Ritināt uz leju">
+    <a href="#birojs" class="hero__scroll" aria-label="Ritināt uz leju">
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </a>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="pakalpojumi" class="services">
-    <div class="container">
-      <div class="text-center fade-in">
-        <div class="section-label">Vindex</div>
-        <h2 class="section-title">Mūsu pakalpojumi</h2>
-        <div class="divider divider--center"></div>
-        <p class="section-subtitle section-subtitle--center">Mēs piedāvājam sekojošus pakalpojumus</p>
-      </div>
-      <div class="services__grid">
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h3 class="service-card__title">Līgumtiesības</h3>
-          <p class="service-card__desc">Birojam ir ilgstoša pieredze gan vietējo, gan pārrobežu līgumprojektu sagatavošanā, izvērtēšanā, koriģēšanā un saskaņošanā.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-5 7 5v10"/><path d="M9 20v-6h6v6"/></svg>
-          </div>
-          <h3 class="service-card__title">Būvniecības jautājumi</h3>
-          <p class="service-card__desc">Birojs ir sniedzis juridisko nodrošinājumu lielākajiem būvniecības objektiem neatkarīgās Latvijas vēsturē.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="service-card__title">Komerctiesības</h3>
-          <p class="service-card__desc">Nodrošinām pilna spektra juridiskos pakalpojumus uzņēmējdarbības nodrošināšanai, uzņēmumu dibināšanu un reorganizāciju.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
-          </div>
-          <h3 class="service-card__title">Nekustamais īpašums</h3>
-          <p class="service-card__desc">Darījumi ar nekustamo īpašumu — pirkšana, pārdošana, noma, īre un konsultācijas nekustamā īpašuma jomā.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="service-card__title">Publiskie iepirkumi</h3>
-          <p class="service-card__desc">Iepirkumu organizēšana un apstrīdēšana, konsultēšana iepirkumu procedūru jautājumos.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3 class="service-card__title">Starptautiskās tiesības</h3>
-          <p class="service-card__desc">Starptautiskās tiesības, eksporta darījumi, jurisdikcijas jautājumi un pārrobežu strīdu risināšana.</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ABOUT -->
@@ -226,27 +191,10 @@
           <h2 class="section-title">Par biroju</h2>
           <div class="divider"></div>
           <p class="about__subtitle">Darbojas juridisko pakalpojumu jomā vairāk kā 27 gadus.</p>
-          <p class="about__text">Juridiskais birojs "Vindex" — ir birojs ar vairāk kā 25 gadu pieredzi komerctiesību, un jo īpaši būvniecības tiesību, jomā. Rūpīgi sagatavots līgums ir priekšnosacījums veiksmīgam uzņēmējdarbības darījumam, savukārt regulāra juridiskā uzraudzība nodrošina savlaicīgu risku novēršanu.</p>
-          <p class="about__text">Mēs ticam, ka katrs klients ir unikāls, un katram gadījumam pieejam individuāli. Mūsu prioritāte ir klienta intereses, un mēs strādājam, lai nodrošinātu labāko iespējamo rezultātu katrā lietā.</p>
-          <p class="about__text">Šo gadu laikā mūsu klientiem esam nodrošinājuši juridisko drošību projektiem, kuru vērtība pārsniedz 1,0 miljardu eiro.</p>
-          <div class="about__stats">
-            <div class="stat">
-              <div class="stat__value">27+</div>
-              <div class="stat__label">Gadu pieredze</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">1 mljrd+</div>
-              <div class="stat__label">EUR apkalpoti līgumi</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">100+</div>
-              <div class="stat__label">Atrisinātās lietas</div>
-            </div>
-            <div class="stat">
-              <div class="stat__value">100+</div>
-              <div class="stat__label">Laimīgi klienti</div>
-            </div>
-          </div>
+          <p class="about__text">Juridiskais birojs "Vindex" - ir birojs ar vairāk kā 25 gadu pieredzi komerctiesību, un jo īpaši būvniecības tiesību, jomā.</p>
+          <p class="about__text">Jo lielāks bizness, jo lielāki riski, te vairs nevar paļauties uz nejaušību, nepieciešams rūpīgi sagatavoties, izanalizēt visus iespējamos situācijas attīstības variantus (ieskaitot arī neparedzētus apstākļus, kā, piemēram, COVID pandēmija savā laikā) un pēc iespējas precīzāk visu atrunāt līgumā.</p>
+          <p class="about__text">Jo detalizētāks būs līgums, jo mazāk kārdinājuma būs pusēm savu attiecību noskaidrošanai vērsties tiesā. Mūsu klienti ir kompānijas, kas saprot, ka paņemt juristu pirms līguma noslēgšanas, būs daudz izdevīgāk, nekā mēģināt risināt problēmas pēc tam, kad līgumi jau ir parakstīti. Bet vislabāk, ja jurists ir lietas kursā par kompānijas biznesu un veic pastāvīgu juridisko monitoringu, piedalās līgumus sastādīšanā, apspriešanā, kā arī dokumentu sagatavošanā līgumu izpildes laikā.</p>
+          <p class="about__text">Tas nav tik dārgi, kā varētu šķist, mēs saprotam, ka sadarbībai ir jābūt prognozējamai un izdevīgai abām pusēm. Dažkārt uzņēmējs var pieļaut kādu pārkāpumu, it īpaši konkurences tiesību nozarē, pašam pat to līdz galam neizprotot. Pa šiem gadiem mēs esam snieguši saviem klientiem juridisko nodrošinājumu projektiem vairāk kā 1,0 miljarda eiro apmērā. Tas dod pārliecību, ka spēsim rast risinājumus arī tajās situācijās, kas mūs sagaida nākotnē.</p>
         </div>
         <div class="fade-right">
           <div class="about__image-wrapper">
@@ -288,30 +236,104 @@
     </div>
   </section>
 
+  <!-- METRICS BAND -->
+  <section class="metrics-band">
+    <div class="metrics-band__accent metrics-band__accent--top"></div>
+    <div class="metrics-band__inner">
+      <div class="metrics-band__item fade-in">
+        <div class="metrics-band__value">27+</div>
+        <div class="metrics-band__label">Gadu pieredze</div>
+      </div>
+      <div class="metrics-band__divider"></div>
+      <div class="metrics-band__item fade-in">
+        <div class="metrics-band__value">1 mljrd+</div>
+        <div class="metrics-band__label">EUR apkalpoti līgumi</div>
+      </div>
+      <div class="metrics-band__divider"></div>
+      <div class="metrics-band__item fade-in">
+        <div class="metrics-band__value">100+</div>
+        <div class="metrics-band__label">Atrisinātās lietas</div>
+      </div>
+      <div class="metrics-band__divider"></div>
+      <div class="metrics-band__item fade-in">
+        <div class="metrics-band__value">100+</div>
+        <div class="metrics-band__label">Laimīgi klienti</div>
+      </div>
+    </div>
+    <div class="metrics-band__accent metrics-band__accent--bottom"></div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section class="practice">
+    <div class="container">
+      <div class="practice__grid">
+        <div class="fade-left">
+          <div class="section-label">Juridiskais birojs</div>
+          <h2 class="section-title">Mēs praktizējamies</h2>
+          <div class="divider"></div>
+          <p class="practice__goal">Mūsu mērķis – lai mūsu klienti varētu nodarboties ar savu biznesu un netiktu ievilkti ilgos tiesvedības procesos. Piedāvājam klientiem dažādas sadarbības formas – gan uz stundu likmi balstītus, gan gabaldarbus, gan ikmēneša juridisko nodrošinājumu par fiksētu samaksu.</p>
+          <div class="practice__photo">
+            <img src="/vindex/images/Vindex-partner-Gvido-Senkans.jpg" alt="Gvido Senkāns — Vindex partneris" width="574" height="800" loading="lazy">
+            <div class="practice__photo-caption">Gvido Senkāns<span>Partneris un vadītājs</span></div>
+          </div>
+        </div>
+        <div class="fade-right">
+          <div class="practice__list">
+            <div class="practice-item">
+              <div class="practice-item__title">Uzņēmumu dibināšana</div>
+              <p class="practice-item__desc">Palīdzēsim jūsu uzņēmuma dibināšanā, pārrobežu struktūrā, akcionāru savstarpējās attiecībās.</p>
+              <a href="/vindex/kontakti/" class="practice-item__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+            <div class="practice-item">
+              <div class="practice-item__title">Būvniecības līgumi</div>
+              <p class="practice-item__desc">Būvniecības līgumi (tai skaitā FIDIC) gan pasūtītājiem, gan ģenerāluzņēmējiem, gan apakšuzņēmējiem.</p>
+              <a href="/vindex/kontakti/" class="practice-item__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+            <div class="practice-item">
+              <div class="practice-item__title">Starptautiskās tiesības, eksporta darījumi</div>
+              <p class="practice-item__desc">Strādājam ar starptautiskām lietām, kurās tiek risināti jurisdikcijas jautājumi, bērnu nolaupīšanas un atgriešanas mītnes valstī jautājumi.</p>
+              <a href="/vindex/kontakti/" class="practice-item__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+            <div class="practice-item">
+              <div class="practice-item__title">Darījumi ar nekustamo īpašumu</div>
+              <p class="practice-item__desc">Konsultējam jautājumos, kas saistīti ar nekustamo īpašumu pirkšanu, pārdošanu, iznomāšanu, nomāšanu, servitūtu nodibināšanu, grozīšanu vai dzēšanu, īpašumu sadalīšanu vai apvienošanu.</p>
+              <a href="/vindex/kontakti/" class="practice-item__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+            <div class="practice-item">
+              <div class="practice-item__title">Iepirkumu organizēšana</div>
+              <p class="practice-item__desc">Iepirkumu organizēšana, nepieciešamības gadījumā – iepirkumu nolikumu un rezultātu apstrīdēšana.</p>
+              <a href="/vindex/kontakti/" class="practice-item__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section class="process">
     <div class="container">
       <div class="text-center fade-in">
         <div class="section-label">Kā tas strādā?</div>
-        <h2 class="section-title">Mēs piedāvājam labāku risinājumu</h2>
+        <h2 class="section-title">Mēs piedāvājam labāku risinājumu!</h2>
         <div class="divider divider--center"></div>
-        <p class="section-subtitle section-subtitle--center">Noslēdziet abonenta līgumu par juridiskajiem pakalpojumiem</p>
+        <p class="section-subtitle section-subtitle--center">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
       </div>
       <div class="process__steps">
         <div class="process-step fade-in">
           <div class="process-step__num">01</div>
           <h3 class="process-step__title">Juridiskais izvērtējums</h3>
-          <p class="process-step__desc">Izvērtēšana un nepieciešamo dokumentu koriģēšana atbilstoši klienta vajadzībām.</p>
+          <p class="process-step__desc">Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-step__num">02</div>
           <h3 class="process-step__title">Tikšanās ar klientu</h3>
-          <p class="process-step__desc">Rezultātu ziņošana un priekšlikumu izteikšana turpmākajai sadarbībai.</p>
+          <p class="process-step__desc">Tiekamies ar klientu, ziņojam par rezultātiem un izvirzām priekšlikumu turpmākai sadarbībai</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-step__num">03</div>
           <h3 class="process-step__title">Līguma noslēgšana</h3>
-          <p class="process-step__desc">Dokumentu saskaņošana un dalība pārrunās līguma parakstīšanai.</p>
+          <p class="process-step__desc">Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi</p>
         </div>
       </div>
     </div>
@@ -404,17 +426,49 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
+      <div class="footer__contacts">
+        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
+        <h2 class="footer__contacts-heading">Kontakti</h2>
+        <p class="footer__contacts-sub">Pirmā konsultācija par brīvu.</p>
+        <div class="footer__contacts-grid">
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="footer__contact-label">E-pasts</div>
+            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="footer__contact-label">Adrese</div>
+            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babītes pagasts, Mārupes novads, LV-2101</div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="footer__contact-label">Telefons</div>
+            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          </div>
+        </div>
+      </div>
       <div class="footer__inner">
         <div class="footer__copy">&copy; 2025 Juridiskais birojs Vindex. Visas tiesības aizsargātas.</div>
         <div class="footer__links">
-          <a href="mailto:info@vindex.lv" class="footer__link">info@vindex.lv</a>
-          <a href="tel:+37129225530" class="footer__link">+371 29225530</a>
+          <a href="/vindex/privatuma-politika/" class="footer__link">Privātuma politika</a>
+          <a href="/vindex/sikdatnu-politika/" class="footer__link">Sīkdatņu politika</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <button class="go-top" aria-label="Atpakaļ uz augšu" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <script src="/vindex/js/cookie-consent.js"></script>
-  <script src="/vindex/js/main.js?v=3"></script>
+  <script src="/vindex/js/main.js?v=4"></script>
 </body>
 </html>

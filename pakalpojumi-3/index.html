@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakalpojumi — Ikonu skats | Vindex</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap"></noscript>
+  <link rel="stylesheet" href="/vindex/css/style.css">
+  <style>
+    .ib3-section {
+      background: #f5f4f1;
+      padding: 52px 0 96px;
+    }
+
+    /* View switcher */
+    .view-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+    }
+    .view-switch__label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(26,39,68,0.4);
+      margin-right: 4px;
+    }
+    .view-switch a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid rgba(26,39,68,0.14);
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(26,39,68,0.48);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .view-switch a.active,
+    .view-switch a:hover { border-color: var(--navy); color: var(--navy); }
+    .view-switch a svg { width: 13px; height: 13px; }
+
+    /* 3-column grid */
+    .ib3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: svc;
+    }
+
+    /* Card */
+    .ib3-card {
+      background: #fff;
+      padding: 36px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      counter-increment: svc;
+      border: 1px solid rgba(26,39,68,0.07);
+      border-top: 3px solid transparent;
+      box-shadow: 0 2px 12px rgba(26,39,68,0.04);
+      transition: border-top-color 0.3s ease, background 0.25s ease, box-shadow 0.3s ease;
+    }
+    .ib3-card:hover {
+      background: #fdfcf9;
+      border-top-color: var(--gold);
+      box-shadow: 0 6px 24px rgba(26,39,68,0.08);
+    }
+
+    /* Ghost watermark number */
+    .ib3-card::after {
+      content: counter(svc, decimal-leading-zero);
+      position: absolute;
+      right: -6px;
+      bottom: -22px;
+      font-family: var(--font-serif);
+      font-size: 8.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      opacity: 0.038;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 0.35s ease;
+    }
+    .ib3-card:hover::after { opacity: 0.065; }
+
+    /* Icon container */
+    .ib3-card__header {
+      display: block;
+      margin-bottom: 20px;
+    }
+    .ib3-card__num { display: none; }
+
+    .ib3-card__icon {
+      width: 52px; height: 52px;
+      background: rgba(26,39,68,0.07);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .ib3-card:hover .ib3-card__icon {
+      background: rgba(201,168,76,0.15);
+      transform: translateY(-2px);
+    }
+    .ib3-card__icon svg { width: 26px; height: 26px; stroke-width: 1.5; }
+
+    .ib3-card__title {
+      font-family: var(--font-serif);
+      color: var(--navy);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+
+    .ib3-card__desc {
+      font-family: var(--font-sans);
+      color: var(--text-body);
+      font-size: 0.9rem;
+      line-height: 1.76;
+      flex: 1;
+    }
+
+    .ib3-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,39,68,0.22);
+      padding-bottom: 2px;
+      transition: gap 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .ib3-card__link:hover { gap: 10px; color: var(--gold-hover); border-color: var(--gold-hover); }
+    .ib3-card__link svg { width: 11px; height: 11px; }
+
+    @media (max-width: 1100px) {
+      .ib3-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .ib3-grid { grid-template-columns: 1fr; }
+      .ib3-card { padding: 28px 24px; }
+    }
+    @media (max-width: 480px) {
+      .ib3-card { padding: 24px 20px; }
+    }
+
+    /* ── Elegant separator banners ── */
+    .ib-banner {
+      grid-column: 1 / -1;
+      background: var(--navy);
+      padding: 44px 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .ib-banner__rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.22), transparent);
+    }
+    .ib-banner__rule--r {
+      background: linear-gradient(to left, rgba(201,168,76,0.22), transparent);
+    }
+    .ib-banner__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .ib-banner__ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ib-banner__ornament span {
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: rgba(201,168,76,0.38);
+    }
+    .ib-banner__diamond {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.65;
+    }
+    .ib-banner__text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+      max-width: 380px;
+    }
+    @media (max-width: 640px) { .ib-banner { padding: 32px 24px; gap: 18px; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" role="navigation">
+    <div class="navbar__inner">
+      <a href="/vindex/" class="navbar__logo">
+        <picture><source srcset="/vindex/images/logo-vindex.webp" type="image/webp"><img src="/vindex/images/logo-vindex.png" alt="Juridiskais birojs Vindex" class="navbar__logo-img"></picture>
+      </a>
+      <div class="navbar__links">
+        <a href="/vindex/" class="navbar__link">Sākums</a>
+        <div class="navbar__item">
+          <a href="/vindex/pakalpojumi/" class="navbar__link active">Pakalpojumi</a>
+          <div class="navbar__dropdown">
+            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+              Galerija
+            </a>
+            <a href="/vindex/pakalpojumi-2/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+              Kartes
+            </a>
+            <a href="/vindex/pakalpojumi-3/" class="navbar__dropdown-link">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
+              Ikonu skats
+            </a>
+          </div>
+        </div>
+        <a href="/vindex/birojs/" class="navbar__link">Birojs</a>
+        <a href="/vindex/kontakti/" class="navbar__link">Kontakti</a>
+        <a href="/vindex/en/services/" class="navbar__lang">EN</a>
+      </div>
+      <button class="navbar__burger" aria-label="Atvērt izvēlni" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="navbar__mobile" role="menu">
+      <a href="/vindex/" class="navbar__mobile-link">Sākums</a>
+      <a href="/vindex/pakalpojumi/" class="navbar__mobile-link">Pakalpojumi — Galerija</a>
+      <a href="/vindex/pakalpojumi-2/" class="navbar__mobile-link">Pakalpojumi — Kartes</a>
+      <a href="/vindex/pakalpojumi-3/" class="navbar__mobile-link">Pakalpojumi — Ikonu skats</a>
+      <a href="/vindex/birojs/" class="navbar__mobile-link">Birojs</a>
+      <a href="/vindex/kontakti/" class="navbar__mobile-link">Kontakti</a>
+      <div class="navbar__mobile-lang"><a href="/vindex/en/services/" class="navbar__lang">EN</a></div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Vindex</div>
+      <h1 class="page-hero__title">Pakalpojumi</h1>
+      <div class="divider divider--center" style="margin-top:16px"></div>
+      <p class="page-hero__subtitle">Mēs piedāvājam sekojošus pakalpojumus</p>
+      <p class="page-hero__lead">Vairāk kā 25 gadu pieredze komerctiesībās un būvniecības tiesībās ļauj mums piedāvāt precīzus un pārdomātus risinājumus. Neatkarīgi no uzdevuma sarežģītības — strādājam ar augstākajiem standartiem.</p>
+    </div>
+  </section>
+
+  <!-- ICON-BOX SERVICES -->
+  <section class="ib3-section">
+    <div class="container">
+
+      <div class="view-switch">
+        <span class="view-switch__label">Skats:</span>
+        <a href="/vindex/pakalpojumi/">
+          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+          Galerija
+        </a>
+        <a href="/vindex/pakalpojumi-2/">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+          Kartes
+        </a>
+        <a href="/vindex/pakalpojumi-3/" class="active">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
+          Ikonu skats
+        </a>
+      </div>
+
+      <div class="ib3-grid">
+
+        <!-- 01 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </div>
+            <span class="ib3-card__num">01</span>
+          </div>
+          <h3 class="ib3-card__title">Līgumtiesības</h3>
+          <p class="ib3-card__desc">Birojam ir ilgstoša pieredze gan vietējo, gan pārrobežu līgumprojektu sagatavošanā, izvērtēšanā, koriģēšanā un saskaņošanā. Esam snieguši juridiskus atzinumus par jau noslēgtiem līgumiem un ar to izpildi saistītajiem riskiem. Strādājot ar līgumprojektiem tiek modelēti dažādi attīstības scenāriji un sniegti ieteikumi par riskiem un tālākiem soļiem. Pārstāvam klientus līgumu sarunās un palīdzam apzināties visus riskus slēdzot līgumus.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 02 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 9 12 2 21 9 21 20 3 20"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/><rect x="9" y="14" width="6" height="6"/></svg>
+            </div>
+            <span class="ib3-card__num">02</span>
+          </div>
+          <h3 class="ib3-card__title">Būvniecības jautājumi</h3>
+          <p class="ib3-card__desc">Birojs ir sniedzis juridisko nodrošinājumu lielākajiem būvniecības objektiem neatkarīgās Latvijas vēsturē – Nacionālās bibliotēkas būvniecībai, 2. sliežu ceļu būvniecībā Tīnūži–Krustpils, Krievu salas, Dienvidu tiltu būvniecībai u.c. Mums ir praktiska pieredze šādu projektu realizācijā, nodrošinot visu iesaistīto pušu līdzsvarotu sadarbību un izvairoties no nevajadzīgām tiesvedībām.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 03 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+            <span class="ib3-card__num">03</span>
+          </div>
+          <h3 class="ib3-card__title">Komerctiesības</h3>
+          <p class="ib3-card__desc">Nodrošinām pilna spektra juridiskos pakalpojumus uzņēmējdarbības nodrošināšanai. Sniedzam palīdzību par komersantu dibināšanu un reģistrēšanu, dalībnieku sapulču sasaukšanu, dividenžu izmaksu un akcionāru strīdu risināšanu. Esam īstenojuši sarežģītas uzņēmumu reorganizācijas un kā pirmie Latvijā veikuši uzņēmuma juridiskās adreses pārcelšanu no vienas ES dalībvalsts uz citu.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 04 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            </div>
+            <span class="ib3-card__num">04</span>
+          </div>
+          <h3 class="ib3-card__title">Uzņēmumu iegādes un apvienošanas darījumi</h3>
+          <p class="ib3-card__desc">Birojam ir ievērojama pieredze juridiskās palīdzības sniegšanā M&A darījumos, pārstāvot gan pircēju, gan pārdevēju. Esam veikuši uzņēmumu juridiskās izpētes, atklājot ar iegādi saistītos riskus un palīdzot klientam iegādāties uzņēmumu uz izdevīgākiem nosacījumiem. Nodrošinām visas nepieciešamās dokumentācijas sagatavošanu, izvērtēšanu un koriģēšanu.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 05 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M20 22V4"/><path d="M4 22v-8"/><path d="M4 14 12 6l8-2"/></svg>
+            </div>
+            <span class="ib3-card__num">05</span>
+          </div>
+          <h3 class="ib3-card__title">Publiskie iepirkumi</h3>
+          <p class="ib3-card__desc">Birojs daudzus gadus ir darbojies publisko iepirkumu jomā — pārstāvot pretendentus, palīdzot noformēt piedāvājumus, precizējot līgumu projektus, apstrīdot lēmumus. Konsultējam arī publisko tiesību subjektus saistībā ar iepirkumu organizēšanu. Palīdzam sagatavot sūdzības IUB un pārstāvam klientus tiesā, sasniedzot pozitīvus rezultātus.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 06 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
+            </div>
+            <span class="ib3-card__num">06</span>
+          </div>
+          <h3 class="ib3-card__title">Konkurences tiesības</h3>
+          <p class="ib3-card__desc">Strādājam Konkurences likuma regulētajiem jautājumiem. Palīdzam izstrādāt iekšējos noteikumus konkurences tiesību ievērošanas nodrošināšanā, lai preventīvi izvairītos no pārkāpumiem. Pārstāvam klientu intereses gan Konkurences padomē, gan tiesā. Palīdzam sagatavot ziņojumus saistībā ar tirgus dalībnieku apvienošanos.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <div class="ib-banner">
+          <div class="ib-banner__rule"></div>
+          <div class="ib-banner__body">
+            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
+            <p class="ib-banner__text">Pārstāvam klientu intereses iepirkumos, konkurences un īpašumtiesību jautājumos</p>
+          </div>
+          <div class="ib-banner__rule ib-banner__rule--r"></div>
+        </div>
+
+        <!-- 07 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="ib3-card__num">07</span>
+          </div>
+          <h3 class="ib3-card__title">Nekustamais īpašums</h3>
+          <p class="ib3-card__desc">Sniedzam juridisko atbalstu klientiem jautājumos saistībā ar nekustamajiem īpašumiem. Konsultējam par nekustamā īpašuma pirkšanu, pārdošanu, iznomāšanu, servitūtu nodibināšanu, grozīšanu vai dzēšanu, īpašumu sadalīšanu vai apvienošanu, kopīpašuma tiesiskajiem aspektiem, apsaimniekošanas, īres un nomas jautājumiem.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 08 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h4"/><path d="M7 12h10"/></svg>
+            </div>
+            <span class="ib3-card__num">08</span>
+          </div>
+          <h3 class="ib3-card__title">Nodokļu tiesības</h3>
+          <p class="ib3-card__desc">Birojs sniedz konsultācijas dažādos nodokļu tiesību jautājumos. Gatavojot darījumus, iesakām optimālākos nodokļu plānošanas risinājumus. Palīdzam ar reģistrācijām VID un pārstāvam klientus strīdos ar VID. Birojam ir pieredze prejudiciālā nolēmuma pieprasīšanā no ES tiesas Luksemburgā — ar labvēlīgu spriedumu klientam.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 09 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span class="ib3-card__num">09</span>
+          </div>
+          <h3 class="ib3-card__title">Darba tiesības</h3>
+          <p class="ib3-card__desc">Sniedzam konsultācijas un palīdzam sagatavot darba līgumus, vienošanās par konkurences noteikumu ievērošanu, kā arī dažādus darba devēju iekšējo tiesību aktus. Sniedzam juridisko palīdzību darba strīdu risināšanā un jautājumos, kas saistīti ar darba tiesisko attiecību izbeigšanu un atjaunošanu darbā. Esam veiksmīgi pārstāvējuši klientus tiesā.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 10 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <span class="ib3-card__num">10</span>
+          </div>
+          <h3 class="ib3-card__title">Imigrācijas tiesības</h3>
+          <p class="ib3-card__desc">Regulāri sniedzam konsultācijas imigrācijas tiesību jautājumos, palīdzot noformēt vīzas, termiņuzturēšanās un pastāvīgās uzturēšanās atļaujas. Esam palīdzējuši sagatavot dokumentus bēgļa statusa iegūšanai. Birojam ir pieredze sūdzības iesniegšanā un klienta pārstāvēšanā Eiropas Cilvēktiesību tiesā — ar labvēlīgu ECT spriedumu un kompensācijas izmaksāšanu klientam.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 11 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <span class="ib3-card__num">11</span>
+          </div>
+          <h3 class="ib3-card__title">Ģimenes un mantojuma tiesības</h3>
+          <p class="ib3-card__desc">Sniedzam kvalitatīvu juridisko palīdzību ģimenes tiesību jautājumos saistībā ar laulības šķiršanu, laulāto kopmantas dalīšanu, aizgādības un saskarsmes tiesībām. Pārstāvam klientus bāriņtiesā un tiesā. Strādājam ar starptautiskām lietām — jurisdikcijas jautājumi, bērnu nolaupīšana. Sniedzam konsultācijas mantojuma tiesībās, tai skaitā starpvalstu lietās.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 12 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="ib3-card__num">12</span>
+          </div>
+          <h3 class="ib3-card__title">Administratīvās tiesības</h3>
+          <p class="ib3-card__desc">Palīdzam klientiem administratīvo tiesību un administratīvā procesa tiesību jautājumos. Sagatavojam pieteikumus par pieņemto administratīvo aktu, kā arī iestādes faktiskās rīcības apstrīdēšanu un pārsūdzēšanu. Pārstāvam klientu intereses administratīvajā procesā iestādēs un tiesās.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <div class="ib-banner">
+          <div class="ib-banner__rule"></div>
+          <div class="ib-banner__body">
+            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
+            <p class="ib-banner__text">Kad domstarpības nonāk tiesā — mūsu pieredze ir Jūsu priekšrocība</p>
+          </div>
+          <div class="ib-banner__rule ib-banner__rule--r"></div>
+        </div>
+
+        <!-- 13 — full width -->
+        <article class="ib3-card fade-in" style="grid-column: 1 / -1;">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+            </div>
+            <span class="ib3-card__num">13</span>
+          </div>
+          <h3 class="ib3-card__title">Tiesvedība</h3>
+          <p class="ib3-card__desc" style="-webkit-line-clamp: unset; max-width: 820px;">Palīdzam klientiem visos gadījumos, kad domstarpības un konfliktu risināšana nonākusi tiesā. Lai arī tiesvedība nav mūsu biroja galvenā specializācija, esam uzkrājuši plašu pieredzi, veiksmīgi aizstāvot savu klientu intereses tiesā sarežģītās lietās. Gadījumos, kad konkrētajos jautājumos nespējam sniegt labāko iespējamo palīdzību, informējam par to klientu un palīdzam piesaistīt atbilstošus speciālistus.</p>
+          <a href="/vindex/kontakti/" class="ib3-card__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="section-label">Kā tas strādā?</div>
+        <h2 class="section-title">Mēs piedāvājam labāku risinājumu!</h2>
+        <div class="divider divider--center"></div>
+        <p class="section-subtitle">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
+      </div>
+      <div class="process__steps">
+        <div class="process-step fade-in">
+          <div class="process-step__num">01</div>
+          <h3 class="process-step__title">Juridiskais izvērtējums</h3>
+          <p class="process-step__desc">Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">02</div>
+          <h3 class="process-step__title">Tikšanās ar klientu</h3>
+          <p class="process-step__desc">Tiekamies ar klientu, ziņojam par rezultātiem un izvirzām priekšlikumu turpmākai sadarbībai</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">03</div>
+          <h3 class="process-step__title">Līguma noslēgšana</h3>
+          <p class="process-step__desc">Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__title serif">Pirmā konsultācija par brīvu!</div>
+      <a href="/vindex/kontakti/" class="btn btn--navy">Sazināties ar mums</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__contacts">
+        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
+        <h2 class="footer__contacts-heading">Kontakti</h2>
+        <p class="footer__contacts-sub">Pirmā konsultācija par brīvu.</p>
+        <div class="footer__contacts-grid">
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="footer__contact-label">E-pasts</div>
+            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="footer__contact-label">Adrese</div>
+            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babītes pagasts, Mārupes novads, LV-2101</div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="footer__contact-label">Telefons</div>
+            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__inner">
+        <div class="footer__copy">&copy; 2025 Juridiskais birojs Vindex. Visas tiesības aizsargātas.</div>
+        <div class="footer__links">
+          <a href="/vindex/privatuma-politika/" class="footer__link">Privātuma politika</a>
+          <a href="/vindex/sikdatnu-politika/" class="footer__link">Sīkdatņu politika</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="go-top" aria-label="Atpakaļ uz augšu" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+  <script src="/vindex/js/cookie-consent.js"></script>
+  <script src="/vindex/js/main.js?v=4"></script>
+</body>
+</html>

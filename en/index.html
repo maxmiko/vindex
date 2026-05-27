@@ -36,7 +36,8 @@
   <!-- Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap"></noscript>
   <link rel="stylesheet" href="/vindex/css/style.css">
 
   <!-- JSON-LD Structured Data -->
@@ -104,7 +105,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="navbar__inner">
       <a href="/vindex/en/" class="navbar__logo" aria-label="Vindex - Home">
-        <img src="/vindex/images/logo-vindex.png" alt="Law office Vindex" class="navbar__logo-img">
+        <picture><source srcset="/vindex/images/logo-vindex.webp" type="image/webp"><img src="/vindex/images/logo-vindex.png" alt="Law office Vindex" class="navbar__logo-img"></picture>
       </a>
 
       <div class="navbar__links">
@@ -143,7 +144,21 @@
         <h1 class="hero__title"><span class="hero__title-prefix">Law office</span> Vindex</h1>
         <div class="hero__divider"></div>
         <p class="hero__subtitle">Personalised and reliable legal services</p>
-        <p class="hero__desc">For a predictable monthly fee just for your company's needs. Law office "Vindex" is a bureau with more than 25 years of experience in the field of commercial law and especially construction law.</p>
+        <p class="hero__desc">For a predictable monthly fee tailored to your company's needs.</p>
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <strong>25+</strong>
+            <span>years of practice</span>
+          </div>
+          <div class="hero__meta-item">
+            <strong>Commercial law</strong>
+            <span>& construction</span>
+          </div>
+          <div class="hero__meta-item">
+            <strong>Free</strong>
+            <span>1st consultation</span>
+          </div>
+        </div>
         <div class="hero__buttons">
           <a href="/vindex/en/contacts/" class="btn btn--gold">Contact Us</a>
           <a href="/vindex/en/services/" class="btn btn--outline">Our Services</a>
@@ -154,65 +169,9 @@
         <div class="hero__photo-caption">Gvido Senkāns<span>Partner &amp; Managing Director</span></div>
       </div>
     </div>
-    <a href="#services" class="hero__scroll" aria-label="Scroll down">
+    <a href="#about" class="hero__scroll" aria-label="Scroll down">
       <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </a>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="text-center fade-in">
-        <div class="section-label">Vindex</div>
-        <h2 class="section-title">Our Services</h2>
-        <div class="divider divider--center"></div>
-        <p class="section-subtitle section-subtitle--center">We offer the following services</p>
-      </div>
-      <div class="services__grid">
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h3 class="service-card__title">Contract Law</h3>
-          <p class="service-card__desc">The bureau has long-standing experience in drafting, evaluating, adjusting and coordinating both local and cross-border contract projects.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-5 7 5v10"/><path d="M9 20v-6h6v6"/></svg>
-          </div>
-          <h3 class="service-card__title">Construction Issues</h3>
-          <p class="service-card__desc">The bureau has provided legal support for the largest construction projects in the history of independent Latvia.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="service-card__title">Commercial Law</h3>
-          <p class="service-card__desc">We provide a full spectrum of legal services for business operations, company establishment and reorganization.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3z"/></svg>
-          </div>
-          <h3 class="service-card__title">Real Estate</h3>
-          <p class="service-card__desc">Real estate transactions — purchase, sale, rental, lease and real estate consultations.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="service-card__title">Public Procurement</h3>
-          <p class="service-card__desc">Organization and contestation of procurements, consulting on procurement procedures.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3 class="service-card__title">International Law</h3>
-          <p class="service-card__desc">International law, export transactions, jurisdiction issues and cross-border dispute resolution.</p>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ABOUT -->
@@ -280,6 +239,51 @@
                 <div class="value-item__desc">Fast and precise solutions for your needs</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section class="practice">
+    <div class="container">
+      <div class="practice__grid">
+        <div class="practice__left fade-left">
+          <div class="section-label">Law office</div>
+          <h2 class="section-title">We practice</h2>
+          <div class="divider"></div>
+          <p class="practice__goal">Our goal is for our clients to be able to do their business and not be drawn into long legal proceedings. We offer clients various forms of cooperation – based on hourly rate, piecework, monthly legal provision for a fixed fee.</p>
+          <div class="practice__photo">
+            <img src="https://vindex.lv/wp-content/uploads/2022/09/Gvido_Senkans-212x300-1-e1663065699390.jpg" alt="Gvido Senkāns" loading="lazy">
+            <div class="practice__photo-caption">Gvido Senkāns<span>Partner &amp; Managing Director</span></div>
+          </div>
+        </div>
+        <div class="practice__list fade-right">
+          <div class="practice-item">
+            <div class="practice-item__title">Establishment of companies</div>
+            <p class="practice-item__desc">We will help you with establishment of your company, cross-border structure, mutual relations of stockholders.</p>
+            <a href="/vindex/en/contacts/" class="practice-item__link">Contact us <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="practice-item">
+            <div class="practice-item__title">Construction contracts</div>
+            <p class="practice-item__desc">Construction contracts (including FIDIC) for customers, general contractors and subcontractors.</p>
+            <a href="/vindex/en/contacts/" class="practice-item__link">Contact us <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="practice-item">
+            <div class="practice-item__title">International law, export transactions</div>
+            <p class="practice-item__desc">We work with international cases dealing with issues of jurisdiction, child abduction and return to the home country.</p>
+            <a href="/vindex/en/contacts/" class="practice-item__link">Contact us <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="practice-item">
+            <div class="practice-item__title">Real estate transactions</div>
+            <p class="practice-item__desc">We consult on issues related to purchase, sale, rental, lease of real estate, establishment, amendment or cancellation of easements, division or merger of real estates.</p>
+            <a href="/vindex/en/contacts/" class="practice-item__link">Contact us <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+          <div class="practice-item">
+            <div class="practice-item__title">Organisation of procurements</div>
+            <p class="practice-item__desc">Organisation of procurements, if necessary – contesting procurement regulations and results.</p>
+            <a href="/vindex/en/contacts/" class="practice-item__link">Contact us <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           </div>
         </div>
       </div>
@@ -402,6 +406,34 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
+      <div class="footer__contacts">
+        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
+        <h2 class="footer__contacts-heading">Contact Us</h2>
+        <p class="footer__contacts-sub">First consultation is free.</p>
+        <div class="footer__contacts-grid">
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="footer__contact-label">E-mail</div>
+            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="footer__contact-label">Address</div>
+            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babīte Parish, Mārupe Municipality, LV-2101</div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="footer__contact-label">Phone</div>
+            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          </div>
+        </div>
+      </div>
       <div class="footer__inner">
         <div class="footer__copy">&copy; 2025 Law office Vindex. All rights reserved.</div>
         <div class="footer__links">
@@ -412,7 +444,11 @@
     </div>
   </footer>
 
+  <button class="go-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <script src="/vindex/js/cookie-consent.js"></script>
-  <script src="/vindex/js/main.js?v=3"></script>
+  <script src="/vindex/js/main.js?v=4"></script>
 </body>
 </html>

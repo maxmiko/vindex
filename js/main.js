@@ -151,4 +151,33 @@
     });
   });
 
+  // --- Service card "Lasīt vairāk" toggle ---
+  setTimeout(function() {
+    document.querySelectorAll('.svc-card__desc').forEach(function(desc) {
+      if (desc.scrollHeight > desc.clientHeight + 2) {
+        var btn = document.createElement('button');
+        btn.className = 'svc-card__toggle';
+        btn.textContent = 'Lasīt vairāk';
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var expanded = desc.classList.toggle('expanded');
+          btn.textContent = expanded ? 'Lasīt mazāk' : 'Lasīt vairāk';
+        });
+        desc.parentNode.insertBefore(btn, desc.nextSibling);
+      }
+    });
+  }, 0);
+
+  // --- Go to top button ---
+  var goTopBtn = document.querySelector('.go-top');
+  if (goTopBtn) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        goTopBtn.classList.add('visible');
+      } else {
+        goTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+  }
+
 })();

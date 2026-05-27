@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pakalpojumi — Saraksts | Vindex</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/vindex/images/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap"></noscript>
+  <link rel="stylesheet" href="/vindex/css/style.css">
+  <style>
+    /* ── Accordion editorial layout ── */
+    .acc-section {
+      background: var(--cream);
+      padding: 52px 0 96px;
+    }
+
+    /* View switcher */
+    .view-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 44px;
+    }
+    .view-switch__label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(26,39,68,0.4);
+      margin-right: 4px;
+    }
+    .view-switch a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid rgba(26,39,68,0.14);
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(26,39,68,0.48);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .view-switch a.active,
+    .view-switch a:hover { border-color: var(--navy); color: var(--navy); }
+    .view-switch a svg { width: 13px; height: 13px; }
+
+    /* Accordion container */
+    .acc-list {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    /* Accordion item */
+    .acc-item {
+      border-top: 1px solid rgba(26,39,68,0.12);
+    }
+    .acc-item:last-child {
+      border-bottom: 1px solid rgba(26,39,68,0.12);
+    }
+
+    /* Header (clickable) */
+    .acc-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: padding-left 0.35s ease;
+    }
+    .acc-header:hover {
+      padding-left: 8px;
+    }
+    .acc-item.active .acc-header {
+      padding-left: 8px;
+      padding-bottom: 16px;
+    }
+
+    .acc-header__num {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: rgba(26,39,68,0.12);
+      min-width: 48px;
+      transition: color 0.35s ease;
+      letter-spacing: -0.02em;
+    }
+    .acc-item.active .acc-header__num,
+    .acc-header:hover .acc-header__num {
+      color: var(--gold);
+    }
+
+    .acc-header__title {
+      flex: 1;
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+      transition: color 0.3s ease;
+    }
+
+    .acc-header__icon {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(26,39,68,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s ease, border-color 0.3s ease;
+    }
+    .acc-item.active .acc-header__icon {
+      transform: rotate(45deg);
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .acc-header__icon svg {
+      width: 12px; height: 12px;
+      stroke: var(--navy);
+      stroke-width: 2;
+      fill: none;
+      transition: stroke 0.3s ease;
+    }
+    .acc-item.active .acc-header__icon svg {
+      stroke: #fff;
+    }
+
+    /* Body (expandable via grid-template-rows) */
+    .acc-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    .acc-item.active .acc-body {
+      grid-template-rows: 1fr;
+    }
+    .acc-body__inner {
+      overflow: hidden;
+    }
+
+    .acc-body__content {
+      margin-left: 72px;
+      border-left: 3px solid var(--gold);
+      padding: 0 0 32px 28px;
+    }
+
+    .acc-body__desc {
+      font-family: var(--font-sans);
+      color: var(--text-body);
+      font-size: 0.94rem;
+      line-height: 1.82;
+      max-width: 680px;
+    }
+
+    .acc-body__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,39,68,0.22);
+      padding-bottom: 2px;
+      transition: gap 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .acc-body__link:hover { gap: 10px; color: var(--gold-hover); border-color: var(--gold-hover); }
+    .acc-body__link svg { width: 11px; height: 11px; }
+
+    /* First item open by default — subtle intro */
+    .acc-item:first-child .acc-header__num { color: var(--gold); }
+
+    /* ── Light separator banners ── */
+    .acc-banner {
+      background: #f3f1eb;
+      padding: 48px 36px;
+      margin: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .acc-banner__rule {
+      flex: 1;
+      max-width: 180px;
+      height: 1px;
+      background: rgba(26,39,68,0.12);
+    }
+    .acc-banner__body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .acc-banner__num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .acc-banner__text {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--navy);
+      opacity: 0.5;
+      max-width: 280px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .acc-list { padding: 0 8px; }
+      .acc-header { gap: 14px; padding: 22px 0; }
+      .acc-header__num { font-size: 1.2rem; min-width: 36px; }
+      .acc-header__title { font-size: 1.08rem; }
+      .acc-body__content { margin-left: 50px; padding-left: 20px; }
+    }
+    @media (max-width: 480px) {
+      .acc-header__num { display: none; }
+      .acc-body__content { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled" role="navigation">
+    <div class="navbar__inner">
+      <a href="/vindex/" class="navbar__logo">
+        <picture><source srcset="/vindex/images/logo-vindex.webp" type="image/webp"><img src="/vindex/images/logo-vindex.png" alt="Juridiskais birojs Vindex" class="navbar__logo-img"></picture>
+      </a>
+      <div class="navbar__links">
+        <a href="/vindex/" class="navbar__link">Sākums</a>
+        <div class="navbar__item">
+          <a href="/vindex/pakalpojumi/" class="navbar__link active">Pakalpojumi</a>
+          <div class="navbar__dropdown">
+            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> Galerija</a>
+            <a href="/vindex/pakalpojumi-2/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg> Kartes</a>
+            <a href="/vindex/pakalpojumi-3/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg> Ikonu skats</a>
+            <a href="/vindex/pakalpojumi-4/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="11" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/></svg> Saraksts</a>
+          </div>
+        </div>
+        <a href="/vindex/birojs/" class="navbar__link">Birojs</a>
+        <a href="/vindex/kontakti/" class="navbar__link">Kontakti</a>
+        <a href="/vindex/en/services/" class="navbar__lang">EN</a>
+      </div>
+      <button class="navbar__burger" aria-label="Atvērt izvēlni" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="navbar__mobile" role="menu">
+      <a href="/vindex/" class="navbar__mobile-link">Sākums</a>
+      <a href="/vindex/pakalpojumi/" class="navbar__mobile-link">Pakalpojumi — Galerija</a>
+      <a href="/vindex/pakalpojumi-2/" class="navbar__mobile-link">Pakalpojumi — Kartes</a>
+      <a href="/vindex/pakalpojumi-3/" class="navbar__mobile-link">Pakalpojumi — Ikonu skats</a>
+      <a href="/vindex/pakalpojumi-4/" class="navbar__mobile-link">Pakalpojumi — Saraksts</a>
+      <a href="/vindex/birojs/" class="navbar__mobile-link">Birojs</a>
+      <a href="/vindex/kontakti/" class="navbar__mobile-link">Kontakti</a>
+      <div class="navbar__mobile-lang"><a href="/vindex/en/services/" class="navbar__lang">EN</a></div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-label">Vindex</div>
+      <h1 class="page-hero__title">Pakalpojumi</h1>
+      <div class="divider divider--center" style="margin-top:16px"></div>
+      <p class="page-hero__subtitle">Mēs piedāvājam sekojošus pakalpojumus</p>
+      <p class="page-hero__lead">Vairāk kā 25 gadu pieredze komerctiesībās un būvniecības tiesībās ļauj mums piedāvāt precīzus un pārdomātus risinājumus. Neatkarīgi no uzdevuma sarežģītības — strādājam ar augstākajiem standartiem.</p>
+    </div>
+  </section>
+
+  <!-- ACCORDION SERVICES -->
+  <section class="acc-section">
+    <div class="container">
+
+      <div class="view-switch">
+        <span class="view-switch__label">Skats:</span>
+        <a href="/vindex/pakalpojumi/">
+          <svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+          Galerija
+        </a>
+        <a href="/vindex/pakalpojumi-2/">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg>
+          Kartes
+        </a>
+        <a href="/vindex/pakalpojumi-3/">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
+          Ikonu skats
+        </a>
+        <a href="/vindex/pakalpojumi-4/" class="active">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="11" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/></svg>
+          Saraksts
+        </a>
+      </div>
+
+      <div class="acc-list">
+
+        <div class="acc-item active">
+          <div class="acc-header">
+            <span class="acc-header__num">01</span>
+            <h3 class="acc-header__title">Līgumtiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojam ir ilgstoša pieredze gan vietējo, gan pārrobežu līgumprojektu sagatavošanā, izvērtēšanā, koriģēšanā un saskaņošanā. Esam snieguši juridiskus atzinumus par jau noslēgtiem līgumiem un ar to izpildi saistītajiem riskiem. Strādājot ar līgumprojektiem tiek modelēti dažādi attīstības scenāriji un sniegti ieteikumi par riskiem un tālākiem soļiem. Pārstāvam klientus līgumu sarunās, saskaņojam pozīcijas ar līgumpartneriem, kā arī palīdzam apzināties klientam visus riskus slēdzot līgumus.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">02</span>
+            <h3 class="acc-header__title">Būvniecības jautājumi</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojs ir sniedzis juridisko nodrošinājumu lielākajiem būvniecības objektiem neatkarīgās Latvijas vēsturē – Nacionālās bibliotēkas būvniecībai, 2. sliežu ceļu būvniecībā Tīnūži–Krustpils, Krievu salas būvniecībai, Dienvidu tiltu būvniecībai u.c. Mums ir praktiska pieredze šādu projektu realizācijā, nodrošinot visu iesaistīto pušu līdzsvarotu sadarbību, objektu savlaicīgu un kvalitatīvu būvniecību, izvairoties no nevajadzīgām tiesvedībām.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">03</span>
+            <h3 class="acc-header__title">Komerctiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Nodrošinām pilna spektra juridiskos pakalpojumus uzņēmējdarbības nodrošināšanai. Sniedzam juridisko palīdzību par dažādu komersantu un citu juridisko personu dibināšanu un reģistrēšanu, dalībnieku sapulču sasaukšanu un noturēšanu, dividenžu izmaksu un akcionāru strīdu risināšanu. Esam īstenojuši sarežģītas uzņēmumu reorganizācijas, kā arī kā pirmie Latvijā veikuši uzņēmuma juridiskās adreses pārcelšanu no vienas ES dalībvalsts uz citu.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">04</span>
+            <h3 class="acc-header__title">Uzņēmumu iegādes un apvienošanas darījumi</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojam ir ievērojama pieredze juridiskās palīdzības sniegšanā uzņēmumu iegādes un apvienošanās darījumos, pārstāvot gan pircēju, gan pārdevēju. Esam veikuši uzņēmumu juridiskās izpētes, atklājot ar uzņēmuma iegādi saistītos riskus un palīdzot klientam iegādāties uzņēmumu uz izdevīgākiem nosacījumiem. Nodrošinām visas nepieciešamās dokumentācijas sagatavošanu, izvērtēšanu un koriģēšanu saistībā ar šiem darījumiem.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-banner">
+          <div class="acc-banner__rule"></div>
+          <div class="acc-banner__body">
+            <div class="acc-banner__num">25+</div>
+            <p class="acc-banner__text">Gadu pieredze komerciālos darījumos</p>
+          </div>
+          <div class="acc-banner__rule"></div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">05</span>
+            <h3 class="acc-header__title">Publiskie iepirkumi</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojs daudzus gadus ir darbojies publisko iepirkumu jomā — pārstāvot gan pretendentus, kas piedalās izsludinātos iepirkumos, palīdzot noformēt piedāvājumus, precizējot līgumu projektus, apstrīdot pieņemtos lēmumus, gan arī konsultējot uzņēmējus un publisko tiesību subjektus saistībā ar iepirkumu organizēšanu. Palīdzam sagatavot sūdzības Iepirkumu uzraudzības birojā, pārstāvam klientus sūdzību izskatīšanā iestādē un tiesā.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">06</span>
+            <h3 class="acc-header__title">Konkurences tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojs strādā Konkurences likuma regulētajiem jautājumiem. Palīdzam izstrādāt iekšējos noteikumus konkurences tiesību ievērošanas nodrošināšanā, lai preventīvi izvairītos no pārkāpumiem. Pārstāvam klientu intereses gan Konkurences padomē, gan tiesā. Palīdzam sagatavot ziņojumus saistībā ar tirgus dalībnieku apvienošanos un konsultējam citos klientus interesējošos jautājumos.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">07</span>
+            <h3 class="acc-header__title">Nekustamais īpašums</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Sniedzam juridisko atbalstu klientiem jautājumos saistībā ar nekustamajiem īpašumiem. Konsultējam jautājumos, kas saistīti ar nekustamā īpašuma pirkšanu, pārdošanu, iznomāšanu, nomāšanu, servitūtu nodibināšanu, grozīšanu vai dzēšanu, īpašumu sadalīšanu vai apvienošanu, kopīpašuma tiesiskajiem aspektiem, apsaimniekošanas, īres un nomas jautājumiem.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">08</span>
+            <h3 class="acc-header__title">Nodokļu tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Birojs sniedz konsultācijas dažādos nodokļu tiesību jautājumos. Gatavojot darījumus un līgumu projektus, iesakām klientiem optimālākos risinājumus nodokļu plānošanas jautājumos. Palīdzam saistībā ar nepieciešamajām reģistrācijām VID. Pārstāvam klientus strīdos ar VID gan iestādē, gan tiesā. Birojam ir pieredze saistībā ar prejudiciālā nolēmuma pieprasīšanu no ES tiesas, klienta pārstāvēšanu Luksemburgā — ar labvēlīgu spriedumu klientam.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-banner">
+          <div class="acc-banner__rule"></div>
+          <div class="acc-banner__body">
+            <div class="acc-banner__num">1 mljrd+</div>
+            <p class="acc-banner__text">EUR apkalpoti projekti un darījumi</p>
+          </div>
+          <div class="acc-banner__rule"></div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">09</span>
+            <h3 class="acc-header__title">Darba tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Sniedzam konsultācijas un palīdzam sagatavot darba līgumus, vienošanās par konkurences noteikumu ievērošanu, kā arī dažādus darba devēju iekšējo tiesību aktus. Sniedzam juridisko palīdzību dažādu darba strīdu risināšanā, jautājumos, kas saistīti ar darba tiesisko attiecību izbeigšanu un atjaunošanu darbā. Esam veiksmīgi pārstāvējuši klientus tiesā, panākuši vēlamo rezultātu un ar izmantoto argumentāciju snieguši ieguldījumu judikatūras attīstībā.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">10</span>
+            <h3 class="acc-header__title">Imigrācijas tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Regulāri sniedzam konsultācijas imigrācijas tiesību jautājumos, palīdzot noformēt dažāda veida vīzas, termiņuzturēšanās un pastāvīgās uzturēšanās atļaujas. Esam palīdzējuši sagatavot dokumentus bēgļa statusa iegūšanai un veiksmīgi pārsūdzējuši lēmumu par personas izdošanu uz ārvalsti. Birojam ir pieredze sūdzības iesniegšanā ECT — ar labvēlīgu spriedumu un kompensācijas izmaksāšanu klientam.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">11</span>
+            <h3 class="acc-header__title">Ģimenes un mantojuma tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Sniedzam kvalitatīvu juridisko palīdzību ģimenes tiesību jautājumos: laulības šķiršana, laulāto kopmantas dalīšana, aizgādības un saskarsmes tiesības. Pārstāvam klientus bāriņtiesā un tiesā. Strādājam ar starptautiskām lietām — jurisdikcijas jautājumi, bērnu nolaupīšanas un atgriešanas mītnes valstī jautājumi. Sniedzam konsultācijas mantojuma tiesību jautājumos, tai skaitā lietās, kurās mantinieki atrodas vairākās valstīs.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">12</span>
+            <h3 class="acc-header__title">Administratīvās tiesības</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Palīdzam klientiem administratīvo tiesību un administratīvā procesa tiesību jautājumos. Sagatavojam pieteikumus par pieņemto administratīvo aktu, kā arī iestādes faktiskās rīcības apstrīdēšanu un pārsūdzēšanu. Pārstāvam klientu intereses administratīvajā procesā iestādēs un tiesās.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header">
+            <span class="acc-header__num">13</span>
+            <h3 class="acc-header__title">Tiesvedība</h3>
+            <div class="acc-header__icon"><svg viewBox="0 0 16 16"><line x1="8" y1="3" x2="8" y2="13"/><line x1="3" y1="8" x2="13" y2="8"/></svg></div>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body__inner">
+              <div class="acc-body__content">
+                <p class="acc-body__desc">Palīdzam klientiem visos gadījumos, kad domstarpības un konfliktu risināšana nonākusi tiesā. Lai arī tiesvedība nav mūsu biroja galvenā specializācija, esam uzkrājuši plašu pieredzi, veiksmīgi aizstāvot savu klientu intereses tiesā sarežģītās lietās. Gadījumos, kad konkrētajos jautājumos nespējam sniegt labāko iespējamo palīdzību, informējam par to klientu un palīdzam piesaistīt atbilstošus speciālistus.</p>
+                <a href="/vindex/kontakti/" class="acc-body__link">Sazināties <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="section-label">Kā tas strādā?</div>
+        <h2 class="section-title">Mēs piedāvājam labāku risinājumu!</h2>
+        <div class="divider divider--center"></div>
+        <p class="section-subtitle section-subtitle--center">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
+      </div>
+      <div class="process__steps">
+        <div class="process-step fade-in">
+          <div class="process-step__num">01</div>
+          <h3 class="process-step__title">Juridiskais izvērtējums</h3>
+          <p class="process-step__desc">Veicam Klienta darbības juridisko izvērtējumu un nepieciešamības gadījumā piekoriģējam esošos dokumentus vai sastādām jaunus</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">02</div>
+          <h3 class="process-step__title">Tikšanās ar klientu</h3>
+          <p class="process-step__desc">Tiekamies ar klientu, ziņojam par rezultātiem un izvirzām priekšlikumu turpmākai sadarbībai</p>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-step__num">03</div>
+          <h3 class="process-step__title">Līguma noslēgšana</h3>
+          <p class="process-step__desc">Noslēdzot līgumu, saskaņojam nepieciešamos dokumentus ar mūsu biroja juristu, nodrošinot, ka visi juridiskie riski tiek kontrolēti. Ja nepieciešams, mūsu juristi piedalās pārrunās un dokumentu saskaņošanā ar otru pusi</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner__title serif">Pirmā konsultācija par brīvu!</div>
+      <a href="/vindex/kontakti/" class="btn btn--navy">Sazināties ar mums</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__contacts">
+        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
+        <h2 class="footer__contacts-heading">Kontakti</h2>
+        <p class="footer__contacts-sub">Pirmā konsultācija par brīvu.</p>
+        <div class="footer__contacts-grid">
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="footer__contact-label">E-pasts</div>
+            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="footer__contact-label">Adrese</div>
+            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babītes pagasts, Mārupes novads, LV-2101</div>
+          </div>
+          <div class="footer__contact-item">
+            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="footer__contact-label">Telefons</div>
+            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__inner">
+        <div class="footer__copy">&copy; 2025 Juridiskais birojs Vindex. Visas tiesības aizsargātas.</div>
+        <div class="footer__links">
+          <a href="/vindex/privatuma-politika/" class="footer__link">Privātuma politika</a>
+          <a href="/vindex/sikdatnu-politika/" class="footer__link">Sīkdatņu politika</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="go-top" aria-label="Atpakaļ uz augšu" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+  <script src="/vindex/js/cookie-consent.js"></script>
+  <script src="/vindex/js/main.js?v=4"></script>
+  <script>
+    /* Accordion toggle */
+    document.querySelectorAll('.acc-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var item = this.closest('.acc-item');
+        var wasActive = item.classList.contains('active');
+        document.querySelectorAll('.acc-item.active').forEach(function(i) {
+          i.classList.remove('active');
+        });
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

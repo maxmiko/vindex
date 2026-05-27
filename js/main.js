@@ -180,4 +180,37 @@
     }, { passive: true });
   }
 
+  // --- Metrics band counter animation ---
+  var metricsBand = document.querySelector('.metrics-band');
+  if (metricsBand && 'IntersectionObserver' in window) {
+    var countEls = metricsBand.querySelectorAll('[data-count]');
+    // Reset to 0 immediately so animation is visible
+    countEls.forEach(function (el) { el.textContent = '0'; });
+
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          countEls.forEach(function (el) {
+            var target = parseInt(el.getAttribute('data-count'), 10);
+            var suffix = el.getAttribute('data-suffix') || '';
+            var duration = 2000;
+            var startTime = null;
+
+            function step(timestamp) {
+              if (!startTime) startTime = timestamp;
+              var progress = Math.min((timestamp - startTime) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.floor(eased * target) + suffix;
+              if (progress < 1) requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    counterObserver.observe(metricsBand);
+  }
+
 })();

@@ -168,58 +168,47 @@
       .ib3-card { padding: 24px 20px; }
     }
 
-    /* ── Elegant separator banners ── */
+    /* ── Light separator banners ── */
     .ib-banner {
       grid-column: 1 / -1;
-      background: var(--navy);
-      padding: 44px 40px;
+      background: #f3f1eb;
+      padding: 48px 40px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 32px;
     }
     .ib-banner__rule {
       flex: 1;
+      max-width: 180px;
       height: 1px;
-      background: linear-gradient(to right, rgba(201,168,76,0.22), transparent);
-    }
-    .ib-banner__rule--r {
-      background: linear-gradient(to left, rgba(201,168,76,0.22), transparent);
+      background: rgba(26,39,68,0.12);
     }
     .ib-banner__body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       flex-shrink: 0;
       text-align: center;
     }
-    .ib-banner__ornament {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .ib-banner__ornament span {
-      display: block;
-      width: 36px;
-      height: 1px;
-      background: rgba(201,168,76,0.38);
-    }
-    .ib-banner__diamond {
-      width: 6px; height: 6px;
-      background: var(--gold);
-      transform: rotate(45deg);
-      opacity: 0.65;
+    .ib-banner__num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
     }
     .ib-banner__text {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.02rem;
-      color: rgba(255,255,255,0.42);
-      letter-spacing: 0.02em;
-      line-height: 1.6;
-      max-width: 380px;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--navy);
+      opacity: 0.5;
+      max-width: 280px;
     }
-    @media (max-width: 640px) { .ib-banner { padding: 32px 24px; gap: 18px; } }
+    @media (max-width: 640px) { .ib-banner { padding: 36px 24px; gap: 20px; } }
   </style>
 </head>
 <body>
@@ -247,6 +236,7 @@
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
               Ikonu skats
             </a>
+            <a href="/vindex/pakalpojumi-4/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="11" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/></svg> Saraksts</a>
           </div>
         </div>
         <a href="/vindex/birojs/" class="navbar__link">Birojs</a>
@@ -297,6 +287,10 @@
         <a href="/vindex/pakalpojumi-3/" class="active">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg>
           Ikonu skats
+        </a>
+        <a href="/vindex/pakalpojumi-4/">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="11" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/></svg>
+          Saraksts
         </a>
       </div>
 
@@ -383,10 +377,10 @@
         <div class="ib-banner">
           <div class="ib-banner__rule"></div>
           <div class="ib-banner__body">
-            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
-            <p class="ib-banner__text">Pārstāvam klientu intereses iepirkumos, konkurences un īpašumtiesību jautājumos</p>
+            <div class="ib-banner__num">25+</div>
+            <p class="ib-banner__text">Gadu pieredze komerciālos darījumos</p>
           </div>
-          <div class="ib-banner__rule ib-banner__rule--r"></div>
+          <div class="ib-banner__rule"></div>
         </div>
 
         <!-- 07 -->
@@ -470,10 +464,10 @@
         <div class="ib-banner">
           <div class="ib-banner__rule"></div>
           <div class="ib-banner__body">
-            <div class="ib-banner__ornament"><span></span><div class="ib-banner__diamond"></div><span></span></div>
-            <p class="ib-banner__text">Kad domstarpības nonāk tiesā — mūsu pieredze ir Jūsu priekšrocība</p>
+            <div class="ib-banner__num">1 mljrd+</div>
+            <p class="ib-banner__text">EUR apkalpoti projekti un darījumi</p>
           </div>
-          <div class="ib-banner__rule ib-banner__rule--r"></div>
+          <div class="ib-banner__rule"></div>
         </div>
 
         <!-- 13 — full width -->
@@ -500,7 +494,7 @@
         <div class="section-label">Kā tas strādā?</div>
         <h2 class="section-title">Mēs piedāvājam labāku risinājumu!</h2>
         <div class="divider divider--center"></div>
-        <p class="section-subtitle">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
+        <p class="section-subtitle section-subtitle--center">Noslēgt abonenta līgumu par juridisko apkalpošanu</p>
       </div>
       <div class="process__steps">
         <div class="process-step fade-in">

@@ -60,9 +60,8 @@
         <div class="navbar__item">
           <a href="/vindex/pakalpojumi/" class="navbar__link">Pakalpojumi</a>
           <div class="navbar__dropdown">
-            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg> Galerija</a>
+            <a href="/vindex/pakalpojumi/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg> Ikonu skats</a>
             <a href="/vindex/pakalpojumi-2/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="14" height="4" rx="1"/><rect x="1" y="7" width="14" height="4" rx="1"/><rect x="1" y="12" width="14" height="3" rx="1"/></svg> Kartes</a>
-            <a href="/vindex/pakalpojumi-3/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="4" cy="4" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="12" cy="12" r="2"/></svg> Ikonu skats</a>
             <a href="/vindex/pakalpojumi-4/" class="navbar__dropdown-link"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="1" y1="4" x2="15" y2="4"/><line x1="1" y1="8" x2="11" y2="8"/><line x1="1" y1="12" x2="15" y2="12"/></svg> Saraksts</a>
           </div>
         </div>
@@ -133,23 +132,19 @@
             <input type="hidden" name="access_key" value="cdbbd048-b346-4fb5-b65c-03c2c0c6bb42">
             <div class="form__row">
               <div class="form__group">
-                <label class="form__label" for="name">Vārds, uzvārds</label>
-                <input class="form__input" type="text" id="name" name="name" placeholder="Jānis Bērziņš" required>
+                <input class="form__input" type="text" id="fname" name="first_name" placeholder="Vārds" required>
               </div>
               <div class="form__group">
-                <label class="form__label" for="phone">Tālrunis</label>
-                <input class="form__input" type="tel" id="phone" name="phone" placeholder="+371 2X XXX XXX">
+                <input class="form__input" type="text" id="lname" name="last_name" placeholder="Uzvārds">
               </div>
             </div>
             <div class="form__group">
-              <label class="form__label" for="email">E-pasta adrese</label>
-              <input class="form__input" type="email" id="email" name="email" placeholder="janis@example.lv">
+              <input class="form__input" type="email" id="email" name="email" placeholder="Ievadiet e-pastu">
             </div>
             <div class="form__group">
-              <label class="form__label" for="message">Komentāri</label>
-              <textarea class="form__textarea" id="message" name="message" rows="5" placeholder="Aprakstiet savu jautājumu vai situāciju..."></textarea>
+              <textarea class="form__textarea" id="message" name="message" rows="5" placeholder="Ievadiet ziņu"></textarea>
             </div>
-            <button type="submit" class="btn btn--blue btn--full">Nosūtīt ziņojumu</button>
+            <button type="submit" class="btn btn--blue btn--full">Sūtīt ziņu</button>
           </form>
         </div>
       </div>

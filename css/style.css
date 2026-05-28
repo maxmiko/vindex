@@ -609,7 +609,7 @@ ul { list-style: none; }
 }
 .hero__meta-item strong {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 1.26rem;
   color: rgba(255,255,255,0.9);
   font-weight: 600;
   line-height: 1.2;
@@ -1025,13 +1025,13 @@ ul { list-style: none; }
 
 /* ── Pre-footer contact strip ── */
 .pre-footer {
-  background: var(--cream);
+  background: var(--navy);
   padding: 64px 0;
 }
 .pre-footer__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid rgba(26,39,68,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 .pre-footer__item {
   display: flex;
@@ -1039,12 +1039,12 @@ ul { list-style: none; }
   align-items: center;
   text-align: center;
   padding: 48px 32px;
-  border-right: 1px solid rgba(26,39,68,0.08);
+  border-right: 1px solid rgba(255,255,255,0.12);
   transition: background 0.3s ease;
   cursor: default;
 }
 .pre-footer__item:last-child { border-right: none; }
-.pre-footer__item:hover { background: rgba(26,39,68,0.03); }
+.pre-footer__item:hover { background: rgba(255,255,255,0.04); }
 .pre-footer__icon {
   width: 36px;
   height: 36px;
@@ -1070,24 +1070,24 @@ ul { list-style: none; }
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(26,39,68,0.45);
+  color: rgba(255,255,255,0.5);
   margin-bottom: 10px;
 }
 .pre-footer__value {
   font-family: var(--font-sans);
   font-size: 1.05rem;
-  color: var(--navy);
+  color: rgba(255,255,255,0.92);
   line-height: 1.6;
 }
 .pre-footer__value a {
-  color: var(--navy);
+  color: rgba(255,255,255,0.92);
   text-decoration: none;
   transition: color 0.25s ease;
 }
 .pre-footer__value a:hover { color: var(--gold); }
 @media (max-width: 768px) {
   .pre-footer__grid { grid-template-columns: 1fr; }
-  .pre-footer__item { border-right: none; border-bottom: 1px solid rgba(26,39,68,0.08); padding: 32px 24px; }
+  .pre-footer__item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 32px 24px; }
   .pre-footer__item:last-child { border-bottom: none; }
 }
 
@@ -1102,7 +1102,8 @@ ul { list-style: none; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding-top: 24px;
+  padding-top: 10px;
+  align-content: center;
 }
 
 .footer__copy {
@@ -1311,6 +1312,7 @@ ul { list-style: none; }
 .svc-card {
   position: relative;
   min-height: 320px;
+  background: var(--navy);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1885,7 +1887,7 @@ ul { list-style: none; }
 
 .birojs-stats__num {
   font-family: var(--font-serif);
-  font-size: 2.6rem;
+  font-size: 3.12rem;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
@@ -1975,7 +1977,7 @@ ul { list-style: none; }
   .partner-intro__text { padding: 40px 24px; }
   .partner-intro__heading { font-size: 1.75rem; }
   .birojs-stats__grid { grid-template-columns: repeat(2, 1fr); }
-  .birojs-stats__num { font-size: 2rem; }
+  .birojs-stats__num { font-size: 2.4rem; }
 }
 
 /* --- Mēs praktizējamies --- */
@@ -2457,6 +2459,70 @@ ul { list-style: none; }
   .fade-left.visible, .fade-right.visible {
     transform: translateY(0);
   }
+}
+
+/* --- Contacts page hero — light variant --- */
+.page-hero--light {
+  background: var(--cream);
+}
+.page-hero--light .page-hero__title { color: var(--navy); }
+.page-hero--light .page-hero__subtitle { color: var(--text-body); }
+.page-hero--light .section-label { color: var(--navy); opacity: 0.55; }
+.page-hero--light .divider { background: var(--gold); }
+
+/* === FAQ Section === */
+.faq {
+  padding: 80px 0;
+  background: var(--cream);
+}
+.faq__list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.faq__item {
+  border-bottom: 1px solid rgba(26,39,68,0.1);
+}
+.faq__item:first-child {
+  border-top: 1px solid rgba(26,39,68,0.1);
+}
+.faq__item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--navy);
+  user-select: none;
+  gap: 16px;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.faq__item[open] summary::after {
+  transform: rotate(45deg);
+}
+.faq__answer {
+  padding: 4px 0 22px;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  color: rgba(26,39,68,0.72);
+  max-width: 700px;
+}
+.faq__answer a {
+  color: var(--navy);
+  text-decoration: underline;
 }
 
 /* --- Responsive --- */

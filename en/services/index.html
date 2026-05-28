@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Services | Contract Law, Construction, Commercial — Vindex</title>
-  <meta name="description" content="Vindex Law Office offers 14+ legal practice areas: contract law, construction law, commercial law, real estate and more. First consultation free of charge!">
+  <title>Legal Services | Contract Law, Construction, Commercial Law — Vindex</title>
+  <meta name="description" content="Vindex Law Office offers legal assistance in contract law, construction law, commercial law, real estate, and other fields. First consultation free!">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://vindex.lv/en/services/">
 
   <meta property="og:url" content="https://vindex.lv/en/services/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Legal Services | Vindex Law Office">
-  <meta property="og:description" content="14+ legal practice areas: contract law, construction law, commercial law and more. First consultation free of charge!">
+  <meta property="og:description" content="Legal assistance in contract law, construction, commercial law, real estate, and other fields. First consultation free!">
   <meta property="og:image" content="https://vindex.lv/images/og-image.jpg">
   <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Legal Services | Vindex Law Office">
-  <meta name="twitter:description" content="14+ legal practice areas: contract law, construction law, commercial law and more. First consultation free of charge!">
+  <meta name="twitter:description" content="Legal assistance in contract law, construction, commercial law, and other fields. First consultation free!">
   <meta name="twitter:image" content="https://vindex.lv/images/og-image.jpg">
 
   <link rel="alternate" hreflang="lv" href="https://vindex.lv/pakalpojumi/">
@@ -29,6 +29,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@400;700&subset=latin-ext&display=swap"></noscript>
   <link rel="stylesheet" href="/vindex/css/style.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,12 +37,205 @@
     "@id": "https://vindex.lv/en/services/",
     "url": "https://vindex.lv/en/services/",
     "name": "Legal Services | Vindex Law Office",
-    "description": "14+ legal practice areas: contract law, construction law, commercial law, real estate and more.",
+    "description": "Legal assistance in contract law, construction law, commercial law, real estate, and other fields.",
     "inLanguage": "en-US",
     "isPartOf": { "@id": "https://vindex.lv/#website" },
     "provider": { "@id": "https://vindex.lv/#organization" }
   }
   </script>
+
+  <style>
+    .ib3-section {
+      background: #f5f4f1;
+      padding: 52px 0 96px;
+    }
+
+    /* 3-column grid */
+    .ib3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: svc;
+    }
+
+    /* Card */
+    .ib3-card {
+      background: #fff;
+      padding: 36px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      counter-increment: svc;
+      border: 1px solid rgba(26,39,68,0.07);
+      border-top: 3px solid transparent;
+      box-shadow: 0 2px 12px rgba(26,39,68,0.04);
+      transition: opacity 0.65s ease, transform 0.65s ease, border-top-color 0.3s ease, background 0.25s ease, box-shadow 0.3s ease;
+    }
+    .ib3-card:hover {
+      background: #fdfcf9;
+      border-top-color: var(--gold);
+      box-shadow: 0 6px 24px rgba(26,39,68,0.08);
+    }
+
+    /* Ghost watermark number */
+    .ib3-card::after {
+      content: counter(svc, decimal-leading-zero);
+      position: absolute;
+      right: -6px;
+      bottom: -22px;
+      font-family: var(--font-serif);
+      font-size: 8.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      opacity: 0.038;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 0.35s ease;
+    }
+    .ib3-card:hover::after { opacity: 0.065; }
+
+    /* Icon container */
+    .ib3-card__header {
+      display: block;
+      margin-bottom: 20px;
+    }
+    .ib3-card__num { display: none; }
+
+    .ib3-card__icon {
+      width: 52px; height: 52px;
+      background: rgba(26,39,68,0.07);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      flex-shrink: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .ib3-card:hover .ib3-card__icon {
+      background: rgba(201,168,76,0.15);
+      transform: translateY(-2px);
+    }
+    .ib3-card__icon svg { width: 26px; height: 26px; stroke-width: 1.5; }
+
+    .ib3-card__title {
+      font-family: var(--font-serif);
+      color: var(--navy);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+
+    .ib3-card__desc {
+      font-family: var(--font-sans);
+      color: var(--text-body);
+      font-size: 0.9rem;
+      line-height: 1.76;
+      flex: 1;
+    }
+
+    .ib3-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      align-self: flex-start;
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(26,39,68,0.22);
+      padding-bottom: 2px;
+      transition: gap 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+    .ib3-card__link:hover { gap: 10px; color: var(--gold-hover); border-color: var(--gold-hover); }
+    .ib3-card__link svg { width: 11px; height: 11px; }
+
+    @media (max-width: 1100px) {
+      .ib3-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .ib3-grid { grid-template-columns: 1fr; }
+      .ib3-card { padding: 28px 24px; }
+    }
+    @media (max-width: 480px) {
+      .ib3-card { padding: 24px 20px; }
+    }
+
+    /* ── Mid-list CTA ── */
+    .ib-cta {
+      grid-column: 1 / -1;
+      margin: 8px 0;
+      padding: 44px 40px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid var(--gold);
+    }
+    .ib-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(191,163,106,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ib-cta__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .ib-cta__headline {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 8px;
+      line-height: 1.3;
+    }
+    .ib-cta__sub {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+      max-width: 460px;
+      line-height: 1.6;
+    }
+    .ib-cta__btn {
+      flex-shrink: 0;
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 14px 32px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .ib-cta__btn:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .ib-cta { padding: 32px 24px; }
+      .ib-cta__inner { flex-direction: column; text-align: center; }
+      .ib-cta__sub { max-width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -78,158 +272,193 @@
       <div class="section-label fade-in">Vindex</div>
       <h1 class="page-hero__title fade-in">Services</h1>
       <div class="divider divider--center fade-in" style="margin-top:16px"></div>
-      <p class="page-hero__subtitle fade-in">We offer the following services</p>
-      <p class="page-hero__lead fade-in">Over 25 years of experience in commercial and construction law allows us to deliver precise and well-considered solutions. Regardless of complexity — we work to the highest standards.</p>
+      <p class="page-hero__subtitle fade-in">We offer the following legal services</p>
+      <p class="page-hero__lead fade-in">More than 25 years of experience in commercial law and construction law allows us to offer precise and well-considered solutions. Regardless of the complexity of the task — we work to the highest standards.</p>
     </div>
   </section>
 
-  <!-- SERVICES BENTO -->
-  <section class="svc-section">
-    <div class="svc-bento">
+  <!-- ICON-BOX SERVICES -->
+  <section class="ib3-section">
+    <div class="container">
+      <div class="ib3-grid">
 
-      <!-- Row 1: wide + narrow -->
-      <div class="svc-card svc-card--wide fade-in" style="--img:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">01</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Contract Law</h3>
-          <p class="svc-card__desc">The firm has extensive experience in preparing, evaluating, adjusting and coordinating both local and cross-border contract projects. We have provided legal opinions on already concluded contracts and the risks associated with their performance. When working with contract projects, various development scenarios are modelled and recommendations are made regarding risks and further steps. We represent clients in contract negotiations, coordinate positions with counterparties, and help clients understand all risks when entering into contracts.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">02</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Construction Issues</h3>
-          <p class="svc-card__desc">The firm has provided legal support for the largest construction projects in independent Latvia — the National Library, the second railway track in Tīnūži–Krustpils, Krievu Island, the Southern Bridge and others. We have practical experience ensuring balanced cooperation, timely and quality construction, and avoiding unnecessary litigation.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 01 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Contract law</h3>
+          <p class="ib3-card__desc">The firm has extensive experience in drafting, reviewing, amending and negotiating both domestic and cross-border contracts. We provide legal opinions on executed agreements and risks related to their performance. When working on contract drafts, various development scenarios are modelled and recommendations on risks and next steps are provided. We represent clients in contract negotiations and help identify all risks when concluding agreements.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
-      <!-- Row 2: three equal -->
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">03</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Commercial Law</h3>
-          <p class="svc-card__desc">We provide a full spectrum of legal services for business operations — company formation and registration, shareholders' meetings, dividend distribution and shareholder dispute resolution. We have implemented complex reorganisations and were the first in Latvia to transfer a company's legal address from one EU member state to another.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">04</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">M&amp;A Transactions</h3>
-          <p class="svc-card__desc">The firm has considerable experience in company acquisition and merger transactions, representing both buyers and sellers. We conduct legal due diligence, identifying acquisition risks and helping clients secure more favourable terms. We handle the full preparation, evaluation and adjustment of all transaction documentation.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">05</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Public Procurement</h3>
-          <p class="svc-card__desc">The firm has been active in public procurement for many years — representing tenderers, preparing tenders, clarifying contract drafts, challenging decisions, and advising on procurement organisation and requirements. We help prepare complaints to the Procurement Monitoring Bureau and have achieved positive outcomes including changes in case law through successful appeals.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 02 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 9 12 2 21 9 21 20 3 20"/><line x1="9" y1="20" x2="9" y2="14"/><line x1="15" y1="20" x2="15" y2="14"/><rect x="9" y="14" width="6" height="6"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Construction law</h3>
+          <p class="ib3-card__desc">The firm has provided legal support for some of the largest construction projects in independent Latvia's history — the National Library, the second track construction Tīnūži–Krustpils, Krievu Sala, the Southern Bridge, and others. We have practical experience in delivering such projects, ensuring balanced cooperation among all parties involved and avoiding unnecessary litigation.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
-      <!-- Row 3: narrow + wide -->
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">06</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Competition Law</h3>
-          <p class="svc-card__desc">We work on matters regulated by the Competition Law — developing internal compliance regulations, representing client interests before the Competition Council and in court, and preparing merger notifications. We advise on all competition-related issues of interest to clients.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card svc-card--wide fade-in" style="--img:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">07</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Real Estate</h3>
-          <p class="svc-card__desc">We provide legal support on all real estate matters — purchase, sale, leasing, rental, establishment, amendment or cancellation of easements, division or consolidation of properties, joint ownership issues, and property management, tenancy and lease matters.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 03 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Commercial law</h3>
+          <p class="ib3-card__desc">We provide a full spectrum of legal services to support business activities. We assist with the establishment and registration of companies, convening shareholders' meetings, dividend distribution, and resolution of shareholder disputes. We have carried out complex corporate reorganisations and were the first in Latvia to transfer a company's registered address from one EU member state to another.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
-      <!-- Row 4: three equal -->
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">08</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Tax Law</h3>
-          <p class="svc-card__desc">We advise on various tax law matters and recommend optimal tax planning solutions when preparing transactions. We assist with SRS registrations and document submissions, and represent clients in disputes with tax authorities. The firm has experience representing clients before the Court of Justice of the EU in Luxembourg, resulting in a favourable ruling.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">09</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Employment Law</h3>
-          <p class="svc-card__desc">We draft employment contracts, non-compete agreements and internal employer regulations. We assist in resolving labour disputes and handling termination and reinstatement of employment. We have successfully represented clients in court and contributed to the development of case law in this field.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">10</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Immigration Law</h3>
-          <p class="svc-card__desc">We advise on immigration matters and assist with visas, temporary and permanent residence permits. We have helped obtain refugee status and successfully challenged extradition orders. The firm has experience before the European Court of Human Rights, where we secured a favourable judgment and compensation for the client.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 04 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Business acquisition and merger transactions</h3>
+          <p class="ib3-card__desc">The firm has considerable experience providing legal assistance in M&amp;A transactions, representing both buyers and sellers. We conduct legal due diligence of companies, identifying acquisition-related risks and helping clients acquire businesses on more favourable terms. We ensure the preparation, review and amendment of all necessary documentation.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
-      <!-- Row 5: wide + narrow -->
-      <div class="svc-card svc-card--wide fade-in" style="--img:url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=1200&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">11</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Family &amp; Succession Law</h3>
-          <p class="svc-card__desc">We provide legal assistance on divorce, division of marital property, recovery of contributions made to the other spouse's separate property, custody and access rights. We represent clients before the Orphan's Court and in court, and work on international cases involving jurisdiction issues and child abduction matters.</p>
-          <p class="svc-card__desc" style="margin-top:10px">We advise on succession law matters and have extensive experience in cross-border inheritance cases where heirs and estate assets are located in multiple countries, requiring proceedings in courts of different jurisdictions.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
-      <div class="svc-card fade-in" style="--img:url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">12</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Administrative Law</h3>
-          <p class="svc-card__desc">We assist clients on administrative law and administrative procedure matters. We prepare applications for challenging and appealing administrative acts and the actual conduct of institutions. We represent client interests in administrative proceedings before institutions and courts.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 05 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M20 22V4"/><path d="M4 22v-8"/><path d="M4 14 12 6l8-2"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Public procurements</h3>
+          <p class="ib3-card__desc">The firm has been active in the field of public procurement for many years — representing tenderers, assisting with tender preparation, reviewing draft contracts, and challenging procurement decisions. We also advise public entities on procurement organisation. We help prepare complaints to the Procurement Monitoring Bureau and represent clients in court, achieving positive outcomes.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
-      <!-- Row 6: full width -->
-      <div class="svc-card svc-card--full fade-in" style="--img:url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80')">
-        <div class="svc-card__overlay"></div>
-        <span class="svc-card__num">13</span>
-        <div class="svc-card__body">
-          <div class="svc-card__line"></div>
-          <h3 class="svc-card__title">Litigation</h3>
-          <p class="svc-card__desc">We assist clients in all cases where disputes have reached the court. Although litigation is not our firm's primary specialisation, we have accumulated extensive experience successfully defending clients' interests in complex cases. In matters where we cannot provide the best possible assistance, we inform clients and help attract the relevant specialists.</p>
-          <a href="/vindex/en/contacts/" class="svc-card__cta">Get in touch</a>
-        </div>
-      </div>
+        <!-- 06 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Competition law</h3>
+          <p class="ib3-card__desc">We handle matters regulated by the Competition Law. We assist in developing internal compliance policies to proactively prevent violations. We represent clients' interests before the Competition Council and in court. We assist with the preparation of notifications related to the merger of market participants.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
 
+        <div class="ib-cta">
+          <div class="ib-cta__inner">
+            <div>
+              <p class="ib-cta__headline">Not sure which service you need?</p>
+              <p class="ib-cta__sub">The first consultation is free — tell us about your situation and we will recommend the most suitable solution.</p>
+            </div>
+            <a href="/vindex/en/contacts/" class="ib-cta__btn">Book a consultation</a>
+          </div>
+        </div>
+
+        <!-- 07 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Real estate</h3>
+          <p class="ib3-card__desc">We provide legal support to clients on matters related to real estate. We advise on the purchase, sale and lease of property, establishment, amendment or cancellation of easements, division or consolidation of properties, co-ownership legal aspects, and property management, tenancy and rental matters.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 08 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8h4"/><path d="M7 12h10"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Tax law</h3>
+          <p class="ib3-card__desc">The firm provides advice on various tax law matters. When structuring transactions, we recommend optimal tax planning solutions. We assist with registrations at the State Revenue Service and represent clients in disputes with the SRS. The firm has experience requesting a preliminary ruling from the Court of Justice of the EU in Luxembourg — with a favourable judgment for the client.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 09 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Labour law</h3>
+          <p class="ib3-card__desc">We provide advice and assist in drafting employment contracts, non-compete agreements, and various employer internal regulations. We provide legal assistance in resolving employment disputes and matters related to the termination and reinstatement of employment relationships. We have successfully represented clients in court.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 10 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Immigration law</h3>
+          <p class="ib3-card__desc">We regularly advise on immigration law matters, helping to arrange visas, temporary and permanent residence permits. We have assisted with the preparation of documents for obtaining refugee status. The firm has experience filing complaints with the European Court of Human Rights — with a favourable ECHR judgment and compensation awarded to the client.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 11 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Family and inheritance law</h3>
+          <p class="ib3-card__desc">We provide high-quality legal assistance in family law matters related to divorce, division of marital property, custody and contact rights. We represent clients before orphan's courts and in general courts. We handle international cases — jurisdictional issues, child abduction. We provide advice on inheritance law, including cross-border matters.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <!-- 12 -->
+        <article class="ib3-card fade-in">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Administrative law</h3>
+          <p class="ib3-card__desc">We assist clients on matters of administrative law and administrative procedure law. We prepare applications challenging and appealing administrative acts as well as the actual conduct of public authorities. We represent clients' interests in administrative proceedings before institutions and courts.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+        <div class="ib-cta">
+          <div class="ib-cta__inner">
+            <div>
+              <p class="ib-cta__headline">More than 25 years of experience</p>
+              <p class="ib-cta__sub">We have serviced projects and transactions worth over 1 billion euros — your matter is in safe hands.</p>
+            </div>
+            <a href="/vindex/en/contacts/" class="ib-cta__btn">Contact us</a>
+          </div>
+        </div>
+
+        <!-- 13 — full width -->
+        <article class="ib3-card fade-in" style="grid-column: 1 / -1;">
+          <div class="ib3-card__header">
+            <div class="ib3-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+            </div>
+          </div>
+          <h3 class="ib3-card__title">Legal proceedings</h3>
+          <p class="ib3-card__desc" style="max-width: 820px;">We assist clients in all cases where disputes and conflict resolution have reached the courts. Although litigation is not the firm's primary specialisation, we have accumulated broad experience successfully defending our clients' interests in court in complex matters. Where we cannot provide the best possible assistance on a particular issue, we inform the client accordingly and help engage the appropriate specialists.</p>
+          <a href="/vindex/en/contacts/" class="ib3-card__link">Get in touch <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -237,26 +466,26 @@
   <section class="process">
     <div class="container">
       <div class="text-center fade-in">
-        <div class="section-label">How it works</div>
-        <h2 class="section-title">We offer a better solution</h2>
+        <div class="section-label">How does it work?</div>
+        <h2 class="section-title">We offer a better solution!</h2>
         <div class="divider divider--center"></div>
-        <p class="section-subtitle">Conclude a subscriber contract for legal services</p>
+        <p class="section-subtitle section-subtitle--center">Enter into a retainer agreement for ongoing legal support</p>
       </div>
       <div class="process__steps">
         <div class="process-step fade-in">
           <div class="process-step__num">01</div>
-          <h3 class="process-step__title">Legal Assessment</h3>
-          <p class="process-step__desc">Review and adjustment of necessary documents.</p>
+          <h3 class="process-step__title">Legal assessment</h3>
+          <p class="process-step__desc">We carry out a legal assessment of the client's operations and, where necessary, amend existing documents or prepare new ones</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-step__num">02</div>
-          <h3 class="process-step__title">Client Meeting</h3>
-          <p class="process-step__desc">Reporting results and making recommendations.</p>
+          <h3 class="process-step__title">Client meeting</h3>
+          <p class="process-step__desc">We meet with the client, report on our findings and present a proposal for further cooperation</p>
         </div>
         <div class="process-step fade-in">
           <div class="process-step__num">03</div>
-          <h3 class="process-step__title">Agreement</h3>
-          <p class="process-step__desc">Document coordination and participation in negotiations.</p>
+          <h3 class="process-step__title">Contract conclusion</h3>
+          <p class="process-step__desc">Upon concluding the agreement, we align all necessary documents with our firm's legal counsel, ensuring that all legal risks are managed. Where required, our lawyers participate in negotiations and document alignment with the other party</p>
         </div>
       </div>
     </div>
@@ -267,6 +496,39 @@
     <div class="container">
       <div class="cta-banner__title serif fade-in">First consultation is free of charge!</div>
       <a href="/vindex/en/contacts/" class="btn btn--navy fade-in">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="text-center fade-in" style="margin-bottom:48px">
+        <div class="section-label">Frequently Asked Questions</div>
+        <h2 class="section-title">Common Questions About Our Services</h2>
+        <div class="divider divider--center"></div>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item fade-in">
+          <summary>What forms of cooperation does Vindex offer?</summary>
+          <p class="faq__answer">The firm offers various forms of cooperation — hourly-rate legal assistance, project-based engagements, and monthly retainer arrangements at a fixed fee. The most suitable model is selected for each client depending on their needs and the scale of their business activities.</p>
+        </details>
+        <details class="faq__item fade-in">
+          <summary>Is the first consultation really free?</summary>
+          <p class="faq__answer">Yes, the first consultation is free of charge. It allows us to understand the situation and helps the client determine what legal assistance they need and what the optimal model for ongoing cooperation would be.</p>
+        </details>
+        <details class="faq__item fade-in">
+          <summary>How long does it take to resolve a matter?</summary>
+          <p class="faq__answer">The timeframe depends on the complexity of the matter and the area of law. Straightforward consultations can be provided promptly, while complex commercial or litigation matters may take considerably longer. A realistic timeframe estimate is provided to the client for each matter.</p>
+        </details>
+        <details class="faq__item fade-in">
+          <summary>Does the firm handle international matters?</summary>
+          <p class="faq__answer">Yes, the firm handles international matters — including cross-border contracts, international jurisdiction issues, and foreign corporate structures. The firm has experience representing clients before the Court of Justice of the European Union and the European Court of Human Rights.</p>
+        </details>
+        <details class="faq__item fade-in">
+          <summary>How can I contact the firm?</summary>
+          <p class="faq__answer">You can reach the firm by phone at <a href="tel:+37129225530">+371 29225530</a>, by email at <a href="mailto:info@vindex.lv">info@vindex.lv</a>, or by completing the contact form on our website. Office hours: Monday–Friday 9:00–18:00.</p>
+        </details>
+      </div>
     </div>
   </section>
 

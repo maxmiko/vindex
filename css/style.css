@@ -1331,17 +1331,14 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.78);
   line-height: 1.7;
   margin-top: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
   transition: opacity 0.4s ease 0.05s, max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
 }
 .svc-card:hover .svc-card__desc {
   opacity: 1;
-  max-height: 160px;
+  max-height: 600px;
 }
 
 .svc-card__toggle { display: none; }
@@ -1381,7 +1378,7 @@ ul { list-style: none; }
   .svc-card--wide,
   .svc-card--full { grid-column: span 2; }
   /* Show desc on tablet (no hover) */
-  .svc-card__desc { opacity: 1; max-height: 200px; }
+  .svc-card__desc { opacity: 1; max-height: 600px; }
 }
 
 @media (max-width: 640px) {
@@ -1389,7 +1386,7 @@ ul { list-style: none; }
   .svc-card--wide,
   .svc-card--full { grid-column: span 1; min-height: 260px; }
   .svc-card { min-height: 240px; }
-  .svc-card__desc { opacity: 1; max-height: 200px; }
+  .svc-card__desc { opacity: 1; max-height: 600px; }
 }
 
 /* --- Services v2: editorial catalog layout --- */

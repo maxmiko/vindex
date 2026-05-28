@@ -181,45 +181,68 @@
     /* First item open by default — subtle intro */
     .acc-item:first-child .acc-header__num { color: var(--gold); }
 
-    /* ── Light separator banners ── */
-    .acc-banner {
-      background: #f3f1eb;
-      padding: 48px 36px;
-      margin: 24px 0;
+    /* ── Mid-list CTA ── */
+    .acc-cta {
+      margin: 40px 0;
+      padding: 48px 40px;
+      background: var(--navy);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .acc-cta::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(191,163,106,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .acc-cta__inner {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 32px;
+      position: relative;
+      z-index: 1;
     }
-    .acc-banner__rule {
-      flex: 1;
-      max-width: 180px;
-      height: 1px;
-      background: rgba(26,39,68,0.12);
-    }
-    .acc-banner__body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-      text-align: center;
-    }
-    .acc-banner__num {
+    .acc-cta__headline {
       font-family: var(--font-serif);
-      font-size: 2.4rem;
+      font-size: 1.35rem;
       font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
+      color: #ffffff;
+      margin: 0 0 8px;
+      line-height: 1.3;
     }
-    .acc-banner__text {
+    .acc-cta__sub {
       font-family: var(--font-sans);
-      font-size: 0.68rem;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .acc-cta__btn {
+      flex-shrink: 0;
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+      border: none;
+      padding: 14px 32px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--navy);
-      opacity: 0.5;
-      max-width: 280px;
+      white-space: nowrap;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .acc-cta__btn:hover {
+      background: var(--gold-hover) !important;
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .acc-cta { padding: 32px 24px; }
+      .acc-cta__inner { flex-direction: column; text-align: center; }
+      .acc-cta__sub { max-width: 100%; }
     }
 
     /* Responsive */
@@ -377,15 +400,6 @@
           </div>
         </div>
 
-        <div class="acc-banner">
-          <div class="acc-banner__rule"></div>
-          <div class="acc-banner__body">
-            <div class="acc-banner__num">25+</div>
-            <p class="acc-banner__text">Gadu pieredze komerciālos darījumos</p>
-          </div>
-          <div class="acc-banner__rule"></div>
-        </div>
-
         <div class="acc-item">
           <div class="acc-header">
             <span class="acc-header__num">05</span>
@@ -450,13 +464,14 @@
           </div>
         </div>
 
-        <div class="acc-banner">
-          <div class="acc-banner__rule"></div>
-          <div class="acc-banner__body">
-            <div class="acc-banner__num">1 mljrd+</div>
-            <p class="acc-banner__text">EUR apkalpoti projekti un darījumi</p>
+        <div class="acc-cta">
+          <div class="acc-cta__inner">
+            <div class="acc-cta__content">
+              <p class="acc-cta__headline">Neesat pārliecināti, kuru pakalpojumu izvēlēties?</p>
+              <p class="acc-cta__sub">Pirmā konsultācija ir bezmaksas — pastāstiet par savu situāciju, un mēs ieteiks piemērotāko risinājumu.</p>
+            </div>
+            <a href="/vindex/kontakti/" class="btn btn--blue acc-cta__btn">Pieteikt konsultāciju</a>
           </div>
-          <div class="acc-banner__rule"></div>
         </div>
 
         <div class="acc-item">
@@ -584,24 +599,32 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__contacts">
-        <div class="section-label" style="text-align:center;margin-bottom:10px">Vindex</div>
-        <h2 class="footer__contacts-heading">Kontakti</h2>
-        <p class="footer__contacts-sub">Pirmā konsultācija par brīvu.</p>
-        <div class="footer__contacts-grid">
-          <div class="footer__contact-item">
-            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="footer__contact-label">E-pasts</div>
-            <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+        <div class="footer__top">
+          <div class="footer__brand">
+            <div class="footer__brand-name">Vindex</div>
+            <p class="footer__brand-desc">Juridiskais birojs ar vairāk nekā 25 gadu pieredzi komerctiesībās un būvniecības tiesībās.</p>
           </div>
-          <div class="footer__contact-item">
-            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div class="footer__contact-label">Adrese</div>
-            <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Babītes pagasts, Mārupes novads, LV-2101</div>
-          </div>
-          <div class="footer__contact-item">
-            <div class="footer__contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div class="footer__contact-label">Telefons</div>
-            <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+          <div class="footer__contacts-grid">
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="footer__contact-label">E-pasts</div>
+              <div class="footer__contact-value"><a href="mailto:info@vindex.lv">info@vindex.lv</a></div>
+            </div>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="footer__contact-label">Telefons</div>
+              <div class="footer__contact-value"><a href="tel:+37129225530">+371 29225530</a></div>
+            </div>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="footer__contact-label">Adrese</div>
+              <div class="footer__contact-value">Pumpuru iela 17, Priežciems,<br>Mārupes novads, LV-2101</div>
+            </div>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="footer__contact-label">Darba laiks</div>
+              <div class="footer__contact-value">P–Pk: 9:00–18:00</div>
+            </div>
           </div>
         </div>
       </div>

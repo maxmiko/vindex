@@ -67,6 +67,13 @@
     updateActive();
   }
 
+  // --- Dynamic copyright year ---
+  var copyEls = document.querySelectorAll('.footer__copy');
+  var currentYear = new Date().getFullYear().toString();
+  copyEls.forEach(function (el) {
+    el.textContent = el.textContent.replace(/\d{4}/, currentYear);
+  });
+
   // --- Scroll animations (IntersectionObserver) ---
   var animElements = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
   if (animElements.length && 'IntersectionObserver' in window) {

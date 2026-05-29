@@ -1023,6 +1023,31 @@ ul { list-style: none; }
 
 .form__textarea { resize: vertical; }
 
+/* ── Floating labels ── */
+.form__group:has(.form__floating) { position: relative; }
+.form__group:has(.form__floating) .form__input,
+.form__group:has(.form__floating) .form__textarea {
+  padding: 20px 16px 7px;
+}
+.form__floating {
+  position: absolute;
+  left: 16px;
+  top: 15px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #6b6b6b;
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.form__input:focus ~ .form__floating,
+.form__input:not(:placeholder-shown) ~ .form__floating,
+.form__textarea:focus ~ .form__floating,
+.form__textarea:not(:placeholder-shown) ~ .form__floating {
+  transform: translateY(-9px) scale(0.72);
+  color: var(--navy);
+}
+
 /* ── Pre-footer contact strip ── */
 .pre-footer {
   background: var(--navy);
@@ -1070,7 +1095,7 @@ ul { list-style: none; }
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.7);
   margin-bottom: 10px;
 }
 .pre-footer__value {
@@ -1230,7 +1255,7 @@ ul { list-style: none; }
 
 .page-hero__subtitle {
   font-family: var(--font-sans);
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.95);
   font-size: 1.4rem;
   max-width: 600px;
   margin: 0 auto;
@@ -1238,7 +1263,7 @@ ul { list-style: none; }
 
 .page-hero__lead {
   font-family: var(--font-sans);
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.9);
   font-size: 1rem;
   max-width: 620px;
   margin: 20px auto 0;
@@ -1820,6 +1845,31 @@ ul { list-style: none; }
   font-size: 1rem;
   line-height: 1.75;
   margin-bottom: 16px;
+}
+
+.partner-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-light);
+}
+.partner-facts__item { display: flex; flex-direction: column; }
+.partner-facts__num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+}
+.partner-facts__label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted-dark, #6b7280);
+  margin-top: 8px;
 }
 
 .partner-intro__visual {

@@ -126,17 +126,21 @@
             <input type="hidden" name="access_key" value="cdbbd048-b346-4fb5-b65c-03c2c0c6bb42">
             <div class="form__row">
               <div class="form__group">
-                <input class="form__input" type="text" id="fname" name="first_name" placeholder="Name" required>
+                <input class="form__input" type="text" id="fname" name="first_name" placeholder=" " required>
+                <label class="form__floating" for="fname">Name</label>
               </div>
               <div class="form__group">
-                <input class="form__input" type="text" id="lname" name="last_name" placeholder="Surname">
+                <input class="form__input" type="text" id="lname" name="last_name" placeholder=" ">
+                <label class="form__floating" for="lname">Surname</label>
               </div>
             </div>
             <div class="form__group">
-              <input class="form__input" type="email" id="email" name="email" placeholder="Enter your e-mail">
+              <input class="form__input" type="email" id="email" name="email" placeholder=" ">
+              <label class="form__floating" for="email">Email</label>
             </div>
             <div class="form__group">
-              <textarea class="form__textarea" id="message" name="message" rows="5" placeholder="Enter a message"></textarea>
+              <textarea class="form__textarea" id="message" name="message" rows="5" placeholder=" "></textarea>
+              <label class="form__floating" for="message">Message</label>
             </div>
             <button type="submit" class="btn btn--blue btn--full">Send message</button>
           </form>
